@@ -8,6 +8,7 @@ Public Class TeacherClassManagementForm
         btnAddClass.Enabled = False
     End Sub
     Private Sub loadItems()
+
         clbDay.Items.Add("Monday")
         clbDay.Items.Add("Tuesday")
         clbDay.Items.Add("Wednesday")
@@ -18,6 +19,8 @@ Public Class TeacherClassManagementForm
         LoadSubjectsAndSY()
         LoadName()
         LoadExistingItems()
+        LoadCBItems()
+
     End Sub
     Private Sub LoadSubjectsAndSY()
         Dim db As New DBClass
@@ -69,6 +72,10 @@ Public Class TeacherClassManagementForm
                 lblTeacherName.Text = dr("FN").ToString
             End While
         End If
+        db.Close()
+    End Sub
+
+    Private Sub LoadExistingItems()
         cbExistingDay.Items.Add("All")
         cbExistingDay.Items.Add("Monday")
         cbExistingDay.Items.Add("Tuesday")
@@ -78,10 +85,6 @@ Public Class TeacherClassManagementForm
         cbExistingDay.Items.Add("Saturday")
         cbExistingDay.Items.Add("Sunday")
         cbExistingDay.SelectedIndex = 0
-        db.Close()
-    End Sub
-
-    Private Sub LoadExistingItems()
         Dim db As New DBClass
         db.Open()
         Dim cmd = db.cmd
@@ -99,7 +102,6 @@ Public Class TeacherClassManagementForm
         cbExistingSY.DisplayMember = "SY"
         cbExistingSY.ValueMember = "idsy"
         db.Close()
-        LoadCBItems()
     End Sub
 
     Private Sub LoadCBItems()
@@ -108,16 +110,16 @@ Public Class TeacherClassManagementForm
         Dim cmd = db.cmd
         cmd.Connection = db.conn
 
-        If Not cbExistingDay.Text = "All" Then
+        If cbExistingDay.Text = "All" Then
             cmd.CommandText = "SELECT *, CONCAT(s.subject_name,' (',co.day,') - ',co.time) as SN FROM class_offering as co JOIN subject as s JOIN schoolyear_sem as ss 
                            WHERE s.idsubject = co.idsubject AND ss.idsy = co.idsy AND co.day LIKE '%%' 
                            AND ss.idsy = @cbid"
             cmd.Parameters.AddWithValue("@cbid", cbExistingSY.SelectedValue)
+
         Else
             cmd.CommandText = "SELECT *, CONCAT(s.subject_name,' (',co.day,') - ',co.time) as SN FROM class_offering as co JOIN subject as s JOIN schoolyear_sem as ss 
-                           WHERE s.idsubject = co.idsubject AND ss.idsy = co.idsy AND co.day LIKE '%@tst%' 
+                           WHERE s.idsubject = co.idsubject AND ss.idsy = co.idsy AND co.day LIKE '%" + cbExistingDay.Text + "%' 
                            AND ss.idsy = @cbid"
-            cmd.Parameters.AddWithValue("@tst", cbExistingDay.SelectedValue)
             cmd.Parameters.AddWithValue("@cbid", cbExistingSY.SelectedValue)
         End If
         Dim dr = db.dr
@@ -129,6 +131,7 @@ Public Class TeacherClassManagementForm
         cbExistingClass.ValueMember = "idclass_offering"
 
         db.Close()
+
     End Sub
     Private Sub ValidateForm()
         If cbSubjects.Text = "" OrElse tbRoom.Text = "" OrElse tbTime.Text = "" Then
@@ -190,12 +193,59 @@ Public Class TeacherClassManagementForm
         ValidateForm()
     End Sub
 
-    Private Sub cbExistingSY_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbExistingSY.SelectedValueChanged
+    Private Sub cbExistingDay_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbExistingDay.SelectedIndexChanged
         LoadCBItems()
     End Sub
 
-    Private Sub cbExistingDay_SelectedValueChanged(sender As Object, e As EventArgs) Handles cbExistingDay.SelectedValueChanged
+    Private Sub cbExistingSY_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbExistingSY.SelectedIndexChanged
         LoadCBItems()
-        MessageBox.Show(cbExistingDay.SelectedItem.ToString)
+    End Sub
+
+    Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
+        gbCreateClass.Text = "Edit Class"
+        btnBack.Visible = True
+        btnAddClass.Text = "Edit Class"
+        LoadEditInfo()
+    End Sub
+
+    Private Sub LoadEditInfo()
+        Dim db As New DBClass
+        db.Open()
+        Dim cmd = db.cmd
+        Dim dr = db.dr
+
+        cmd.Connection = db.conn
+        cmd.CommandText = "SELECT * FROM class_offering WHERE idclass_offering = @ICO;"
+        cmd.Parameters.AddWithValue("@ICO", cbExistingClass.SelectedValue)
+        dr = cmd.ExecuteReader
+        Dim Temparr() As String = {}
+        If dr.HasRows Then
+            While dr.Read
+                cbSubjects.SelectedValue = dr("idsubject")
+                cbSchoolYear.SelectedValue = dr("idsy")
+                tbTime.Text = dr("time")
+                tbRoom.Text = dr("room")
+                Temparr = dr("day").ToString.Split("-")
+                For Each item As String In Temparr
+                    clbDay.SetItemChecked(clbDay.Items.IndexOf(item), True)
+                Next
+            End While
+        End If
+
+        db.Close()
+    End Sub
+
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+        gbCreateClass.Text = "Create New Class"
+        btnBack.Visible = True
+        btnAddClass.Text = "Add Class"
+        cbSubjects.SelectedIndex = 0
+        cbSchoolYear.SelectedIndex = 0
+        tbTime.Clear()
+        tbRoom.Clear()
+        btnBack.Visible = False
+        For index = 0 To clbDay.Items.Count - 1
+            clbDay.SetItemChecked(index, False)
+        Next
     End Sub
 End Class

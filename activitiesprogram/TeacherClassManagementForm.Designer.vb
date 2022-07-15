@@ -29,23 +29,24 @@ Partial Class TeacherClassManagementForm
         Me.lblDay = New System.Windows.Forms.Label()
         Me.lblTime = New System.Windows.Forms.Label()
         Me.gbCreateClass = New System.Windows.Forms.GroupBox()
+        Me.cbSchoolYear = New System.Windows.Forms.ComboBox()
+        Me.lblSchoolYear = New System.Windows.Forms.Label()
         Me.btnAddClass = New System.Windows.Forms.Button()
         Me.tbRoom = New System.Windows.Forms.TextBox()
         Me.tbTime = New System.Windows.Forms.TextBox()
         Me.clbDay = New System.Windows.Forms.CheckedListBox()
         Me.lblRoom = New System.Windows.Forms.Label()
         Me.gbExistingClass = New System.Windows.Forms.GroupBox()
+        Me.cbExistingSY = New System.Windows.Forms.ComboBox()
+        Me.lblExistingSY = New System.Windows.Forms.Label()
         Me.btnDelete = New System.Windows.Forms.Button()
+        Me.cbExistingDay = New System.Windows.Forms.ComboBox()
         Me.btnEdit = New System.Windows.Forms.Button()
+        Me.lblExistingDay = New System.Windows.Forms.Label()
         Me.btnView = New System.Windows.Forms.Button()
         Me.cbExistingClass = New System.Windows.Forms.ComboBox()
         Me.lblExistingClass = New System.Windows.Forms.Label()
-        Me.cbSchoolYear = New System.Windows.Forms.ComboBox()
-        Me.lblSchoolYear = New System.Windows.Forms.Label()
-        Me.cbExistingSY = New System.Windows.Forms.ComboBox()
-        Me.lblExistingSY = New System.Windows.Forms.Label()
-        Me.cbExistingDay = New System.Windows.Forms.ComboBox()
-        Me.lblExistingDay = New System.Windows.Forms.Label()
+        Me.btnBack = New System.Windows.Forms.Button()
         Me.gbCreateClass.SuspendLayout()
         Me.gbExistingClass.SuspendLayout()
         Me.SuspendLayout()
@@ -130,6 +131,26 @@ Partial Class TeacherClassManagementForm
         Me.gbCreateClass.TabStop = False
         Me.gbCreateClass.Text = "Create New Class"
         '
+        'cbSchoolYear
+        '
+        Me.cbSchoolYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbSchoolYear.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbSchoolYear.FormattingEnabled = True
+        Me.cbSchoolYear.Location = New System.Drawing.Point(121, 54)
+        Me.cbSchoolYear.Name = "cbSchoolYear"
+        Me.cbSchoolYear.Size = New System.Drawing.Size(208, 25)
+        Me.cbSchoolYear.TabIndex = 12
+        '
+        'lblSchoolYear
+        '
+        Me.lblSchoolYear.AutoSize = True
+        Me.lblSchoolYear.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSchoolYear.Location = New System.Drawing.Point(15, 54)
+        Me.lblSchoolYear.Name = "lblSchoolYear"
+        Me.lblSchoolYear.Size = New System.Drawing.Size(100, 21)
+        Me.lblSchoolYear.TabIndex = 11
+        Me.lblSchoolYear.Text = "School Year:"
+        '
         'btnAddClass
         '
         Me.btnAddClass.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -193,6 +214,26 @@ Partial Class TeacherClassManagementForm
         Me.gbExistingClass.TabStop = False
         Me.gbExistingClass.Text = "Manage Existing Class"
         '
+        'cbExistingSY
+        '
+        Me.cbExistingSY.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbExistingSY.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbExistingSY.FormattingEnabled = True
+        Me.cbExistingSY.Location = New System.Drawing.Point(121, 19)
+        Me.cbExistingSY.Name = "cbExistingSY"
+        Me.cbExistingSY.Size = New System.Drawing.Size(241, 25)
+        Me.cbExistingSY.TabIndex = 16
+        '
+        'lblExistingSY
+        '
+        Me.lblExistingSY.AutoSize = True
+        Me.lblExistingSY.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblExistingSY.Location = New System.Drawing.Point(15, 23)
+        Me.lblExistingSY.Name = "lblExistingSY"
+        Me.lblExistingSY.Size = New System.Drawing.Size(100, 21)
+        Me.lblExistingSY.TabIndex = 15
+        Me.lblExistingSY.Text = "School Year:"
+        '
         'btnDelete
         '
         Me.btnDelete.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -203,6 +244,16 @@ Partial Class TeacherClassManagementForm
         Me.btnDelete.Text = "Delete Class"
         Me.btnDelete.UseVisualStyleBackColor = True
         '
+        'cbExistingDay
+        '
+        Me.cbExistingDay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbExistingDay.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbExistingDay.FormattingEnabled = True
+        Me.cbExistingDay.Location = New System.Drawing.Point(465, 19)
+        Me.cbExistingDay.Name = "cbExistingDay"
+        Me.cbExistingDay.Size = New System.Drawing.Size(139, 25)
+        Me.cbExistingDay.TabIndex = 14
+        '
         'btnEdit
         '
         Me.btnEdit.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -212,6 +263,16 @@ Partial Class TeacherClassManagementForm
         Me.btnEdit.TabIndex = 11
         Me.btnEdit.Text = "Edit Class"
         Me.btnEdit.UseVisualStyleBackColor = True
+        '
+        'lblExistingDay
+        '
+        Me.lblExistingDay.AutoSize = True
+        Me.lblExistingDay.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblExistingDay.Location = New System.Drawing.Point(418, 23)
+        Me.lblExistingDay.Name = "lblExistingDay"
+        Me.lblExistingDay.Size = New System.Drawing.Size(41, 21)
+        Me.lblExistingDay.TabIndex = 13
+        Me.lblExistingDay.Text = "Day:"
         '
         'btnView
         '
@@ -243,65 +304,16 @@ Partial Class TeacherClassManagementForm
         Me.lblExistingClass.TabIndex = 2
         Me.lblExistingClass.Text = "Class:"
         '
-        'cbSchoolYear
+        'btnBack
         '
-        Me.cbSchoolYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbSchoolYear.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbSchoolYear.FormattingEnabled = True
-        Me.cbSchoolYear.Location = New System.Drawing.Point(121, 54)
-        Me.cbSchoolYear.Name = "cbSchoolYear"
-        Me.cbSchoolYear.Size = New System.Drawing.Size(208, 25)
-        Me.cbSchoolYear.TabIndex = 12
-        '
-        'lblSchoolYear
-        '
-        Me.lblSchoolYear.AutoSize = True
-        Me.lblSchoolYear.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSchoolYear.Location = New System.Drawing.Point(15, 54)
-        Me.lblSchoolYear.Name = "lblSchoolYear"
-        Me.lblSchoolYear.Size = New System.Drawing.Size(100, 21)
-        Me.lblSchoolYear.TabIndex = 11
-        Me.lblSchoolYear.Text = "School Year:"
-        '
-        'cbExistingSY
-        '
-        Me.cbExistingSY.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbExistingSY.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbExistingSY.FormattingEnabled = True
-        Me.cbExistingSY.Location = New System.Drawing.Point(121, 19)
-        Me.cbExistingSY.Name = "cbExistingSY"
-        Me.cbExistingSY.Size = New System.Drawing.Size(241, 25)
-        Me.cbExistingSY.TabIndex = 16
-        '
-        'lblExistingSY
-        '
-        Me.lblExistingSY.AutoSize = True
-        Me.lblExistingSY.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblExistingSY.Location = New System.Drawing.Point(15, 23)
-        Me.lblExistingSY.Name = "lblExistingSY"
-        Me.lblExistingSY.Size = New System.Drawing.Size(100, 21)
-        Me.lblExistingSY.TabIndex = 15
-        Me.lblExistingSY.Text = "School Year:"
-        '
-        'cbExistingDay
-        '
-        Me.cbExistingDay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbExistingDay.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbExistingDay.FormattingEnabled = True
-        Me.cbExistingDay.Location = New System.Drawing.Point(465, 19)
-        Me.cbExistingDay.Name = "cbExistingDay"
-        Me.cbExistingDay.Size = New System.Drawing.Size(139, 25)
-        Me.cbExistingDay.TabIndex = 14
-        '
-        'lblExistingDay
-        '
-        Me.lblExistingDay.AutoSize = True
-        Me.lblExistingDay.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblExistingDay.Location = New System.Drawing.Point(418, 23)
-        Me.lblExistingDay.Name = "lblExistingDay"
-        Me.lblExistingDay.Size = New System.Drawing.Size(41, 21)
-        Me.lblExistingDay.TabIndex = 13
-        Me.lblExistingDay.Text = "Day:"
+        Me.btnBack.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBack.Location = New System.Drawing.Point(509, 15)
+        Me.btnBack.Name = "btnBack"
+        Me.btnBack.Size = New System.Drawing.Size(118, 25)
+        Me.btnBack.TabIndex = 13
+        Me.btnBack.Text = "Back to Create"
+        Me.btnBack.UseVisualStyleBackColor = True
+        Me.btnBack.Visible = False
         '
         'TeacherClassManagementForm
         '
@@ -309,6 +321,7 @@ Partial Class TeacherClassManagementForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(648, 430)
+        Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.gbExistingClass)
         Me.Controls.Add(Me.gbCreateClass)
         Me.Controls.Add(Me.lblTeacherName)
@@ -348,4 +361,5 @@ Partial Class TeacherClassManagementForm
     Friend WithEvents lblExistingSY As Label
     Friend WithEvents cbExistingDay As ComboBox
     Friend WithEvents lblExistingDay As Label
+    Friend WithEvents btnBack As Button
 End Class
