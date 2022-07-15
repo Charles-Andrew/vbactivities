@@ -145,6 +145,7 @@
     <Compile Include="CourseManagement.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="DBClass.vb" />
     <Compile Include="SchoolYearClass.vb" />
     <Compile Include="SchoolYearForm.Designer.vb">
       <DependentUpon>SchoolYearForm.vb</DependentUpon>
@@ -191,6 +192,7 @@
     <Compile Include="registration.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="StudentCourseClass.vb" />
     <Compile Include="StudentForm.Designer.vb">
       <DependentUpon>StudentForm.vb</DependentUpon>
     </Compile>

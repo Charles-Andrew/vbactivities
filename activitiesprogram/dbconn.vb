@@ -6,7 +6,7 @@ Module dbconn
     Public Sub Open()
         Try
             Close()
-            Conn.ConnectionString = "server=localhost;user id=root;password='';database=activitydb"
+            Conn.ConnectionString = "server=localhost;user id=root;password='';database=activitydb;"
             Conn.Open()
         Catch ex As Exception
             MessageBox.Show(ex.Message)

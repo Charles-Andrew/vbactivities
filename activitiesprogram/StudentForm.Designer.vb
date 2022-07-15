@@ -38,10 +38,16 @@ Partial Class StudentForm
         Me.tbAddress = New System.Windows.Forms.TextBox()
         Me.dtpDOB = New System.Windows.Forms.DateTimePicker()
         Me.btnAdd = New System.Windows.Forms.Button()
-        Me.lblID = New System.Windows.Forms.Label()
-        Me.lblIDlabel = New System.Windows.Forms.Label()
         Me.rbMale = New System.Windows.Forms.RadioButton()
         Me.rbFemale = New System.Windows.Forms.RadioButton()
+        Me.lblSy = New System.Windows.Forms.Label()
+        Me.lblYl = New System.Windows.Forms.Label()
+        Me.lblCourse = New System.Windows.Forms.Label()
+        Me.cbSY = New System.Windows.Forms.ComboBox()
+        Me.cbCourse = New System.Windows.Forms.ComboBox()
+        Me.lblStatus = New System.Windows.Forms.Label()
+        Me.cbYL = New System.Windows.Forms.ComboBox()
+        Me.cbStatus = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'lblLname
@@ -183,33 +189,12 @@ Partial Class StudentForm
         'btnAdd
         '
         Me.btnAdd.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.Location = New System.Drawing.Point(551, 174)
+        Me.btnAdd.Location = New System.Drawing.Point(551, 249)
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(107, 23)
+        Me.btnAdd.Size = New System.Drawing.Size(107, 46)
         Me.btnAdd.TabIndex = 16
         Me.btnAdd.Text = "Add Record"
         Me.btnAdd.UseVisualStyleBackColor = True
-        '
-        'lblID
-        '
-        Me.lblID.AutoSize = True
-        Me.lblID.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblID.Location = New System.Drawing.Point(59, 183)
-        Me.lblID.Name = "lblID"
-        Me.lblID.Size = New System.Drawing.Size(0, 21)
-        Me.lblID.TabIndex = 18
-        Me.lblID.Visible = False
-        '
-        'lblIDlabel
-        '
-        Me.lblIDlabel.AutoSize = True
-        Me.lblIDlabel.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblIDlabel.Location = New System.Drawing.Point(15, 184)
-        Me.lblIDlabel.Name = "lblIDlabel"
-        Me.lblIDlabel.Size = New System.Drawing.Size(38, 20)
-        Me.lblIDlabel.TabIndex = 19
-        Me.lblIDlabel.Text = "ID#:"
-        Me.lblIDlabel.Visible = False
         '
         'rbMale
         '
@@ -235,16 +220,102 @@ Partial Class StudentForm
         Me.rbFemale.Text = "Female"
         Me.rbFemale.UseVisualStyleBackColor = True
         '
+        'lblSy
+        '
+        Me.lblSy.AutoSize = True
+        Me.lblSy.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSy.Location = New System.Drawing.Point(12, 216)
+        Me.lblSy.Name = "lblSy"
+        Me.lblSy.Size = New System.Drawing.Size(82, 17)
+        Me.lblSy.TabIndex = 22
+        Me.lblSy.Text = "School Year:"
+        '
+        'lblYl
+        '
+        Me.lblYl.AutoSize = True
+        Me.lblYl.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblYl.Location = New System.Drawing.Point(12, 245)
+        Me.lblYl.Name = "lblYl"
+        Me.lblYl.Size = New System.Drawing.Size(71, 17)
+        Me.lblYl.TabIndex = 23
+        Me.lblYl.Text = "Year Level:"
+        '
+        'lblCourse
+        '
+        Me.lblCourse.AutoSize = True
+        Me.lblCourse.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblCourse.Location = New System.Drawing.Point(13, 185)
+        Me.lblCourse.Name = "lblCourse"
+        Me.lblCourse.Size = New System.Drawing.Size(53, 17)
+        Me.lblCourse.TabIndex = 24
+        Me.lblCourse.Text = "Course:"
+        '
+        'cbSY
+        '
+        Me.cbSY.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbSY.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbSY.FormattingEnabled = True
+        Me.cbSY.Location = New System.Drawing.Point(110, 208)
+        Me.cbSY.Name = "cbSY"
+        Me.cbSY.Size = New System.Drawing.Size(205, 25)
+        Me.cbSY.TabIndex = 25
+        '
+        'cbCourse
+        '
+        Me.cbCourse.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbCourse.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbCourse.FormattingEnabled = True
+        Me.cbCourse.Location = New System.Drawing.Point(110, 177)
+        Me.cbCourse.Name = "cbCourse"
+        Me.cbCourse.Size = New System.Drawing.Size(325, 25)
+        Me.cbCourse.TabIndex = 26
+        '
+        'lblStatus
+        '
+        Me.lblStatus.AutoSize = True
+        Me.lblStatus.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblStatus.Location = New System.Drawing.Point(12, 278)
+        Me.lblStatus.Name = "lblStatus"
+        Me.lblStatus.Size = New System.Drawing.Size(49, 17)
+        Me.lblStatus.TabIndex = 27
+        Me.lblStatus.Text = "Status:"
+        '
+        'cbYL
+        '
+        Me.cbYL.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbYL.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbYL.FormattingEnabled = True
+        Me.cbYL.Location = New System.Drawing.Point(110, 239)
+        Me.cbYL.Name = "cbYL"
+        Me.cbYL.Size = New System.Drawing.Size(205, 25)
+        Me.cbYL.TabIndex = 28
+        '
+        'cbStatus
+        '
+        Me.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cbStatus.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbStatus.FormattingEnabled = True
+        Me.cbStatus.Location = New System.Drawing.Point(110, 270)
+        Me.cbStatus.Name = "cbStatus"
+        Me.cbStatus.Size = New System.Drawing.Size(205, 25)
+        Me.cbStatus.TabIndex = 29
+        '
         'StudentForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(670, 209)
+        Me.ClientSize = New System.Drawing.Size(670, 303)
+        Me.Controls.Add(Me.cbStatus)
+        Me.Controls.Add(Me.cbYL)
+        Me.Controls.Add(Me.lblStatus)
+        Me.Controls.Add(Me.cbCourse)
+        Me.Controls.Add(Me.cbSY)
+        Me.Controls.Add(Me.lblCourse)
+        Me.Controls.Add(Me.lblYl)
+        Me.Controls.Add(Me.lblSy)
         Me.Controls.Add(Me.rbFemale)
         Me.Controls.Add(Me.rbMale)
-        Me.Controls.Add(Me.lblIDlabel)
-        Me.Controls.Add(Me.lblID)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.dtpDOB)
         Me.Controls.Add(Me.tbAddress)
@@ -284,8 +355,14 @@ Partial Class StudentForm
     Friend WithEvents tbAddress As TextBox
     Friend WithEvents dtpDOB As DateTimePicker
     Friend WithEvents btnAdd As Button
-    Friend WithEvents lblID As Label
-    Friend WithEvents lblIDlabel As Label
     Friend WithEvents rbMale As RadioButton
     Friend WithEvents rbFemale As RadioButton
+    Friend WithEvents lblSy As Label
+    Friend WithEvents lblYl As Label
+    Friend WithEvents lblCourse As Label
+    Friend WithEvents cbSY As ComboBox
+    Friend WithEvents cbCourse As ComboBox
+    Friend WithEvents lblStatus As Label
+    Friend WithEvents cbYL As ComboBox
+    Friend WithEvents cbStatus As ComboBox
 End Class

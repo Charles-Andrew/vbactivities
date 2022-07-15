@@ -81,12 +81,12 @@ Public Class StudentClass
         End Set
     End Property
 
-    Public Function AddStudent() As Integer
+    Public Sub AddStudent(tempcourse As Integer, tempsy As Integer, tempyl As String, tempstat As String)
         dbconn.Open()
         Dim cmd As New MySqlCommand
         cmd.Connection = Conn
         cmd.CommandText = "INSERT INTO student (LName, FName, MName, Gender, DOB, ParentName, Address, ContactNo) VALUES 
-                           (@LN, @FN, @MN, @G, @DOB, @PN, @Add, @CN)"
+                           (@LN, @FN, @MN, @G, @DOB, @PN, @Add, @CN); SELECT last_insert_id()"
         cmd.Parameters.AddWithValue("@LN", LastNameProp)
         cmd.Parameters.AddWithValue("@FN", FirstNameProp)
         cmd.Parameters.AddWithValue("@MN", MiddleNameProp)
@@ -95,18 +95,26 @@ Public Class StudentClass
         cmd.Parameters.AddWithValue("@PN", ParentNameProp)
         cmd.Parameters.AddWithValue("@Add", AddressProp)
         cmd.Parameters.AddWithValue("@CN", ContactNoProp)
+        Dim dr As MySqlDataReader
+        dr = cmd.ExecuteReader
 
-        If cmd.ExecuteNonQuery Then
-            MessageBox.Show("New student Record was successfully added.")
-            Return 1
-        Else
-            MessageBox.Show("Something went wrong. Try again.")
-            Return 0
+        If dr.HasRows Then
+            While dr.Read
+                Dim scc As New StudentCourseClass
+                scc.StudentID = dr(0)
+                scc.StudentCourse = tempcourse
+                scc.StudentSY = tempsy
+                scc.StudentYearLevel = tempyl
+                scc.StudentStatus = tempstat
+                scc.AddStudCourse()
+                MessageBox.Show("New student record was successfully added.")
+            End While
         End If
         dbconn.Close()
-    End Function
 
-    Public Function UpdateStudent(id As Integer) As Integer
+    End Sub
+
+    Public Function UpdateStudent(id As Integer, tidsy As Integer, tidcourse As Integer, tyl As String, tstat As String) As Integer
         dbconn.Open()
         Dim cmd As New MySqlCommand
         cmd.Connection = Conn
@@ -124,6 +132,12 @@ Public Class StudentClass
         cmd.Parameters.AddWithValue("@IDS", id)
 
         If cmd.ExecuteNonQuery Then
+            Dim scc As New StudentCourseClass
+            scc.StudentCourse = tidcourse
+            scc.StudentSY = tidsy
+            scc.StudentYearLevel = tyl
+            scc.StudentStatus = tstat
+            scc.EditStudCourse(id)
             MessageBox.Show("Selected student record was successfully updated.")
             Return 1
         Else

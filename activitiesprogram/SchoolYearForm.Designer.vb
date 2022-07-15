@@ -63,7 +63,7 @@ Partial Class SchoolYearForm
         'btnAdd
         '
         Me.btnAdd.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.Location = New System.Drawing.Point(149, 111)
+        Me.btnAdd.Location = New System.Drawing.Point(145, 92)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(164, 31)
         Me.btnAdd.TabIndex = 4
@@ -94,7 +94,7 @@ Partial Class SchoolYearForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(454, 154)
+        Me.ClientSize = New System.Drawing.Size(454, 131)
         Me.Controls.Add(Me.tbSYTo)
         Me.Controls.Add(Me.lblInfo)
         Me.Controls.Add(Me.btnAdd)

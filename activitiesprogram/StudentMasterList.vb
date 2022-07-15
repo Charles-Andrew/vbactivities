@@ -11,7 +11,7 @@ Public Class StudentMasterList
         Dim dt As New DataTable
 
         cmd.Connection = Conn
-        cmd.CommandText = "SELECT * FROM student"
+        cmd.CommandText = "SELECT s.idstudent, s.LName, s.FName, s.MName, s.Gender, s.DOB, s.ParentName, s.Address, s.ContactNo, (SELECT CONCAT(year,' ', sem, ' semester') as sem FROM schoolyear_sem WHERE idsy = sc.idsy) as Current_Sem, (SELECT course_code FROM course where idcourse = sc.idcourse) as Course, sc.year_level, sc.status FROM student as s JOIN stud_course as sc WHERE s.idstudent = sc.idstudent;"
         dr = cmd.ExecuteReader
 
         dt.Load(dr)
@@ -31,9 +31,7 @@ Public Class StudentMasterList
         Dim su As New StudentForm()
         su.Text = "Update Student"
         su.btnAdd.Text = "Update Record"
-        su.lblID.Text = dgvStudentViewer.CurrentRow.Cells(0).Value.ToString
-        su.lblID.Visible = True
-        su.lblIDlabel.Visible = True
+        su.tempid = dgvStudentViewer.CurrentRow.Cells(0).Value.ToString
         su.tbLN.Text = dgvStudentViewer.CurrentRow.Cells(1).Value.ToString
         su.tbFN.Text = dgvStudentViewer.CurrentRow.Cells(2).Value.ToString
         su.tbMN.Text = dgvStudentViewer.CurrentRow.Cells(3).Value.ToString

@@ -12,7 +12,9 @@
 
     Private Sub btnTML_Click(sender As Object, e As EventArgs) Handles btnTML.Click
         Dim t As New TeacherMasterList
+        Me.Hide()
         t.ShowDialog()
+        Me.Show()
     End Sub
 
     Private Sub btnCM_Click(sender As Object, e As EventArgs) Handles btnCM.Click
