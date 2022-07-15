@@ -219,6 +219,13 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TeacherClass.vb" />
+    <Compile Include="TeacherClassManagementClass.vb" />
+    <Compile Include="TeacherClassManagementForm.Designer.vb">
+      <DependentUpon>TeacherClassManagementForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherClassManagementForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="TeacherForm.Designer.vb">
       <DependentUpon>TeacherForm.vb</DependentUpon>
     </Compile>
@@ -268,6 +275,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SubjectManagement.resx">
       <DependentUpon>SubjectManagement.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeacherClassManagementForm.resx">
+      <DependentUpon>TeacherClassManagementForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TeacherForm.resx">
       <DependentUpon>TeacherForm.vb</DependentUpon>

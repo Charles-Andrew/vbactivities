@@ -26,6 +26,7 @@ Partial Class TeacherMasterList
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.btnEdit = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.dgvTeacherViewer, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -74,12 +75,23 @@ Partial Class TeacherMasterList
         Me.btnEdit.Text = "Edit Teacher"
         Me.btnEdit.UseVisualStyleBackColor = True
         '
+        'Button1
+        '
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(12, 232)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(152, 36)
+        Me.Button1.TabIndex = 8
+        Me.Button1.Text = "Class Management"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'TeacherMasterList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(638, 283)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.dgvTeacherViewer)
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.btnEdit)
@@ -95,4 +107,5 @@ Partial Class TeacherMasterList
     Friend WithEvents btnDelete As Button
     Friend WithEvents btnAdd As Button
     Friend WithEvents btnEdit As Button
+    Friend WithEvents Button1 As Button
 End Class

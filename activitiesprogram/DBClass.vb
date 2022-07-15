@@ -2,6 +2,8 @@
 
 Public Class DBClass
     Public conn As New MySqlConnection
+    Public cmd As New MySqlCommand
+    Public dr As MySqlDataReader
     Public Sub Open()
         Close()
         conn.ConnectionString = "server=localhost;user id=root;password='';database=activitydb;"

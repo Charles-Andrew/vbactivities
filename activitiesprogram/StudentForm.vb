@@ -49,7 +49,7 @@ Public Class StudentForm
         Dim dr As MySqlDataReader
         Dim dt As New DataTable
         cmd.Connection = Conn
-        cmd.CommandText = "SELECT idsy, CONCAT(year,' - ', sem, ' semester') as sem FROM schoolyear_sem ORDER BY idsy DESC;"
+        cmd.CommandText = "SELECT idsy, CONCAT(year,' - ', sem, ' semester') as sem FROM schoolyear_sem ORDER BY year DESC;"
         dr = cmd.ExecuteReader
 
         If dr.HasRows Then
@@ -177,6 +177,22 @@ Public Class StudentForm
     End Sub
 
     Private Sub rbMale_CheckedChanged(sender As Object, e As EventArgs) Handles rbMale.CheckedChanged
+        ValidateFields()
+    End Sub
+
+    Private Sub cbStatus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbStatus.SelectedIndexChanged
+        ValidateFields()
+    End Sub
+
+    Private Sub cbSY_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbSY.SelectedIndexChanged
+        ValidateFields()
+    End Sub
+
+    Private Sub cbYL_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbYL.SelectedIndexChanged
+        ValidateFields()
+    End Sub
+
+    Private Sub cbCourse_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbCourse.SelectedIndexChanged
         ValidateFields()
     End Sub
 End Class

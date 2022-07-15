@@ -26,6 +26,7 @@ Partial Class StudentMasterList
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.dgvStudentViewer = New System.Windows.Forms.DataGridView()
+        Me.btnManageSubjects = New System.Windows.Forms.Button()
         CType(Me.dgvStudentViewer, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -74,12 +75,23 @@ Partial Class StudentMasterList
         Me.dgvStudentViewer.Size = New System.Drawing.Size(608, 263)
         Me.dgvStudentViewer.TabIndex = 3
         '
+        'btnManageSubjects
+        '
+        Me.btnManageSubjects.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnManageSubjects.Location = New System.Drawing.Point(12, 239)
+        Me.btnManageSubjects.Name = "btnManageSubjects"
+        Me.btnManageSubjects.Size = New System.Drawing.Size(152, 36)
+        Me.btnManageSubjects.TabIndex = 4
+        Me.btnManageSubjects.Text = "Manage Subjects"
+        Me.btnManageSubjects.UseVisualStyleBackColor = True
+        '
         'StudentMasterList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(800, 287)
+        Me.Controls.Add(Me.btnManageSubjects)
         Me.Controls.Add(Me.dgvStudentViewer)
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.btnEdit)
@@ -95,4 +107,5 @@ Partial Class StudentMasterList
     Friend WithEvents btnEdit As Button
     Friend WithEvents btnDelete As Button
     Friend WithEvents dgvStudentViewer As DataGridView
+    Friend WithEvents btnManageSubjects As Button
 End Class

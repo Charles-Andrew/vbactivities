@@ -52,4 +52,10 @@ Public Class TeacherMasterList
             LoadRecords()
         End If
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim tcmf As New TeacherClassManagementForm
+        tcmf.TeacherID = dgvTeacherViewer.CurrentRow.Cells(0).Value.ToString
+        tcmf.ShowDialog()
+    End Sub
 End Class

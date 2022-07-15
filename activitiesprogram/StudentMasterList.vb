@@ -11,7 +11,12 @@ Public Class StudentMasterList
         Dim dt As New DataTable
 
         cmd.Connection = Conn
-        cmd.CommandText = "SELECT s.idstudent, s.LName, s.FName, s.MName, s.Gender, s.DOB, s.ParentName, s.Address, s.ContactNo, (SELECT CONCAT(year,' ', sem, ' semester') as sem FROM schoolyear_sem WHERE idsy = sc.idsy) as Current_Sem, (SELECT course_code FROM course where idcourse = sc.idcourse) as Course, sc.year_level, sc.status FROM student as s JOIN stud_course as sc WHERE s.idstudent = sc.idstudent;"
+        cmd.CommandText = "SELECT s.idstudent as 'Student ID', s.LName as 'Last Name', s.FName as 'First Name'
+                           , s.MName as 'Middle Name', s.Gender as 'Gender', s.DOB as 'Birthday', 
+                           s.ParentName as 'Parent Name', s.Address as 'Address', s.ContactNo as 'Cellphone Number'
+                           , (SELECT CONCAT(year,' ', sem, ' Semester') as sem FROM schoolyear_sem WHERE idsy = sc.idsy) as Current_Sem, 
+                           (SELECT course_code FROM course where idcourse = sc.idcourse) as Course, sc.year_level as 'Year Level', 
+                           sc.status as 'Status' FROM student as s JOIN stud_course as sc WHERE s.idstudent = sc.idstudent;"
         dr = cmd.ExecuteReader
 
         dt.Load(dr)

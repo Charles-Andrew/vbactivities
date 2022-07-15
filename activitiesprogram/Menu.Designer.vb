@@ -90,7 +90,7 @@ Partial Class Menu
         Me.btnSchoolYear.Name = "btnSchoolYear"
         Me.btnSchoolYear.Size = New System.Drawing.Size(173, 74)
         Me.btnSchoolYear.TabIndex = 4
-        Me.btnSchoolYear.Text = "School Year"
+        Me.btnSchoolYear.Text = "Add New School Year"
         Me.btnSchoolYear.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnSchoolYear.UseVisualStyleBackColor = True
         '
