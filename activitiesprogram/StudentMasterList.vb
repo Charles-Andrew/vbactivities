@@ -65,4 +65,11 @@ Public Class StudentMasterList
             LoadStudentData()
         End If
     End Sub
+
+    Private Sub btnManageSubjects_Click(sender As Object, e As EventArgs) Handles btnManageSubjects.Click
+        Dim ssmf As New StudentSubjectManagementForm
+        ssmf.StudentID = dgvStudentViewer.CurrentRow.Cells(0).Value
+        ssmf.StudentName = dgvStudentViewer.CurrentRow.Cells(2).Value + " " + dgvStudentViewer.CurrentRow.Cells(3).Value + " " + dgvStudentViewer.CurrentRow.Cells(1).Value
+        ssmf.ShowDialog()
+    End Sub
 End Class

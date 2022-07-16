@@ -78,4 +78,40 @@
         End If
         db.Close()
     End Sub
+
+    Public Sub UpdateClass(id As Integer)
+        Dim db As New DBClass
+        db.Open()
+        Dim cmd = db.cmd
+        cmd.Connection = db.conn
+
+        cmd.CommandText = "UPDATE class_offering SET idsubject = @idsubject, idsy = @idsy, 
+                           idteacher = @idteacher, day = @day, time = @time, room = @room WHERE 
+                           idclass_offering = @id"
+        cmd.Parameters.AddWithValue("@idsubject", COSubjectID)
+        cmd.Parameters.AddWithValue("@idsy", COSchoolYear)
+        cmd.Parameters.AddWithValue("@idteacher", COTeacherID)
+        cmd.Parameters.AddWithValue("@day", CODay)
+        cmd.Parameters.AddWithValue("@time", COTime)
+        cmd.Parameters.AddWithValue("@room", CORoom)
+        cmd.Parameters.AddWithValue("@id", id)
+        If cmd.ExecuteNonQuery() Then
+            MessageBox.Show("Successfully updated selected class.")
+        End If
+        db.Close()
+    End Sub
+
+    Public Sub DeleteClass(id As Integer)
+        Dim db As New DBClass
+        db.Open()
+        Dim cmd = db.cmd
+        cmd.Connection = db.conn
+
+        cmd.CommandText = "DELETE FROM class_offering WHERE idclass_offering = @id"
+        cmd.Parameters.AddWithValue("@id", id)
+        If cmd.ExecuteNonQuery() Then
+            MessageBox.Show("Successfully deleted selected class.")
+        End If
+        db.Close()
+    End Sub
 End Class

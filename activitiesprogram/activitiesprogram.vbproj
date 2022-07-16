@@ -205,6 +205,13 @@
     <Compile Include="StudentMasterList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="StudentSubjectManagementClass.vb" />
+    <Compile Include="StudentSubjectManagementForm.Designer.vb">
+      <DependentUpon>StudentSubjectManagementForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="StudentSubjectManagementForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SubjectClass.vb" />
     <Compile Include="SubjectForm.Designer.vb">
       <DependentUpon>SubjectForm.vb</DependentUpon>
@@ -269,6 +276,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StudentMasterList.resx">
       <DependentUpon>StudentMasterList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentSubjectManagementForm.resx">
+      <DependentUpon>StudentSubjectManagementForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SubjectForm.resx">
       <DependentUpon>SubjectForm.vb</DependentUpon>

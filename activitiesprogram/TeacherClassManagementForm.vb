@@ -3,6 +3,7 @@
 Public Class TeacherClassManagementForm
     Public TeacherID As Integer = 0
     Dim Daystring As String = ""
+    Dim CurItemID As Integer = 0
     Private Sub TeacherClassManagementForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         loadItems()
         btnAddClass.Enabled = False
@@ -76,6 +77,7 @@ Public Class TeacherClassManagementForm
     End Sub
 
     Private Sub LoadExistingItems()
+        cbExistingDay.Items.Clear()
         cbExistingDay.Items.Add("All")
         cbExistingDay.Items.Add("Monday")
         cbExistingDay.Items.Add("Tuesday")
@@ -145,27 +147,51 @@ Public Class TeacherClassManagementForm
         End If
     End Sub
     Private Sub btnAddClass_Click(sender As Object, e As EventArgs) Handles btnAddClass.Click
-        Daystring = ""
-        Dim c As Integer = 0
-        For Each item As String In clbDay.CheckedItems
-            If item <> "" Then
-                If c = 0 Then
-                    Daystring += item
-                Else
-                    Daystring += "-" + item
+        If btnAddClass.Text = "Edit Class" Then
+            Dim c As Integer = 0
+            For Each item As String In clbDay.CheckedItems
+                If item <> "" Then
+                    If c = 0 Then
+                        Daystring += item
+                    Else
+                        Daystring += "-" + item
+                    End If
+                    c += 1
                 End If
-                c += 1
-            End If
-        Next
-        Dim tcmc As New TeacherClassManagementClass
-        tcmc.COSubjectID = cbSubjects.SelectedValue
-        tcmc.COSchoolYear = cbSchoolYear.SelectedValue
-        tcmc.COTeacherID = TeacherID
-        tcmc.CODay = Daystring
-        tcmc.COTime = tbTime.Text
-        tcmc.CORoom = tbRoom.Text
-        tcmc.AddClass()
-        ClearFields()
+            Next
+            Dim tcmc As New TeacherClassManagementClass
+            tcmc.COSubjectID = cbSubjects.SelectedValue
+            tcmc.COSchoolYear = cbSchoolYear.SelectedValue
+            tcmc.COTeacherID = TeacherID
+            tcmc.CODay = Daystring
+            tcmc.COTime = tbTime.Text
+            tcmc.CORoom = tbRoom.Text
+            tcmc.UpdateClass(CurItemID)
+        Else
+            Daystring = ""
+            Dim c As Integer = 0
+            For Each item As String In clbDay.CheckedItems
+                If item <> "" Then
+                    If c = 0 Then
+                        Daystring += item
+                    Else
+                        Daystring += "-" + item
+                    End If
+                    c += 1
+                End If
+            Next
+            Dim tcmc As New TeacherClassManagementClass
+            tcmc.COSubjectID = cbSubjects.SelectedValue
+            tcmc.COSchoolYear = cbSchoolYear.SelectedValue
+            tcmc.COTeacherID = TeacherID
+            tcmc.CODay = Daystring
+            tcmc.COTime = tbTime.Text
+            tcmc.CORoom = tbRoom.Text
+            tcmc.AddClass()
+            ClearFields()
+        End If
+        LoadExistingItems()
+        LoadCBItems()
 
     End Sub
     Private Sub ClearFields()
@@ -177,7 +203,7 @@ Public Class TeacherClassManagementForm
             clbDay.SetItemCheckState(item, False)
         Next
     End Sub
-    Private Sub clbDay_SelectedValueChanged(sender As Object, e As EventArgs) Handles clbDay.SelectedValueChanged
+    Private Sub clbDay_SelectedIndexChanged(sender As Object, e As EventArgs) Handles clbDay.SelectedIndexChanged
         ValidateForm()
     End Sub
 
@@ -190,6 +216,9 @@ Public Class TeacherClassManagementForm
     End Sub
 
     Private Sub cbSubjects_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbSubjects.SelectedIndexChanged
+        ValidateForm()
+    End Sub
+    Private Sub cbSchoolYear_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbSchoolYear.SelectedIndexChanged
         ValidateForm()
     End Sub
 
@@ -205,6 +234,7 @@ Public Class TeacherClassManagementForm
         gbCreateClass.Text = "Edit Class"
         btnBack.Visible = True
         btnAddClass.Text = "Edit Class"
+        CurItemID = cbExistingClass.SelectedValue
         LoadEditInfo()
     End Sub
 
@@ -247,5 +277,17 @@ Public Class TeacherClassManagementForm
         For index = 0 To clbDay.Items.Count - 1
             clbDay.SetItemChecked(index, False)
         Next
+    End Sub
+
+    Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
+        Dim TempItemToDelete As String = cbExistingClass.SelectedValue
+        Dim m As DialogResult = MessageBox.Show("Are you sure you want to delete record with Class ID: " +
+                                                TempItemToDelete, "Delete Confimation", MessageBoxButtons.OKCancel)
+        If m = DialogResult.OK Then
+            Dim tcmc As New TeacherClassManagementClass
+            tcmc.DeleteClass(TempItemToDelete)
+            LoadExistingItems()
+            LoadCBItems()
+        End If
     End Sub
 End Class

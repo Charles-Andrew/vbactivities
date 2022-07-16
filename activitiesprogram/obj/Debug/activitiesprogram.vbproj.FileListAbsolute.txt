@@ -268,3 +268,5 @@ D:\vbactivities\activitiesprogram\obj\Debug\activitiesprogram.exe
 D:\vbactivities\activitiesprogram\obj\Debug\activitiesprogram.xml
 D:\vbactivities\activitiesprogram\obj\Debug\activitiesprogram.pdb
 D:\vbactivities\activitiesprogram\obj\Debug\activitiesprogram.TeacherClassManagementForm.resources
+D:\Projects\vbactivities\activitiesprogram\obj\Debug\activitiesprogram.TeacherClassManagementForm.resources
+D:\Projects\vbactivities\activitiesprogram\obj\Debug\activitiesprogram.StudentSubjectManagementForm.resources

@@ -179,6 +179,7 @@ Partial Class TeacherClassManagementForm
         '
         'clbDay
         '
+        Me.clbDay.CheckOnClick = True
         Me.clbDay.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.clbDay.FormattingEnabled = True
         Me.clbDay.Location = New System.Drawing.Point(393, 26)
