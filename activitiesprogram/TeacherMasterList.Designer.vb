@@ -97,6 +97,7 @@ Partial Class TeacherMasterList
         Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.btnAdd)
         Me.Name = "TeacherMasterList"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Teacher Master List"
         CType(Me.dgvTeacherViewer, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

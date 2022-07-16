@@ -72,19 +72,24 @@ Public Class TeacherClass
     End Function
 
     Public Function DeleteTeacher(id As Integer) As Integer
-        dbconn.Open()
-        Dim cmd As New MySqlCommand
-        cmd.Connection = Conn
-        cmd.CommandText = "DELETE FROM teacher WHERE idteacher = @id"
-        cmd.Parameters.AddWithValue("@id", id)
-        If cmd.ExecuteNonQuery Then
-            MessageBox.Show("Selected record was successfully deleted.")
-            Return 1
-        Else
-            MessageBox.Show("Something went wrong. Try again.")
-            Return 0
-        End If
+        Try
+            dbconn.Open()
+            Dim cmd As New MySqlCommand
+            cmd.Connection = Conn
+            cmd.CommandText = "DELETE FROM teacher WHERE idteacher = @id"
+            cmd.Parameters.AddWithValue("@id", id)
+            If cmd.ExecuteNonQuery Then
+                MessageBox.Show("Selected record was successfully deleted.")
+                Return 1
+            Else
+                MessageBox.Show("Something went wrong. Try again.")
+                Return 0
+            End If
 
-        dbconn.Close()
+            dbconn.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        Return 0
     End Function
 End Class

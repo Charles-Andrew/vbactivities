@@ -147,6 +147,7 @@ Partial Class TeacherForm
         Me.Controls.Add(Me.tbMN)
         Me.Controls.Add(Me.tbFN)
         Me.Name = "TeacherForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Teacher Form"
         Me.ResumeLayout(False)
         Me.PerformLayout()

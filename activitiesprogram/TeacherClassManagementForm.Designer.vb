@@ -238,7 +238,7 @@ Partial Class TeacherClassManagementForm
         'btnDelete
         '
         Me.btnDelete.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDelete.Location = New System.Drawing.Point(350, 82)
+        Me.btnDelete.Location = New System.Drawing.Point(350, 103)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(102, 27)
         Me.btnDelete.TabIndex = 12
@@ -250,7 +250,7 @@ Partial Class TeacherClassManagementForm
         Me.cbExistingDay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbExistingDay.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbExistingDay.FormattingEnabled = True
-        Me.cbExistingDay.Location = New System.Drawing.Point(465, 19)
+        Me.cbExistingDay.Location = New System.Drawing.Point(464, 19)
         Me.cbExistingDay.Name = "cbExistingDay"
         Me.cbExistingDay.Size = New System.Drawing.Size(139, 25)
         Me.cbExistingDay.TabIndex = 14
@@ -258,7 +258,7 @@ Partial Class TeacherClassManagementForm
         'btnEdit
         '
         Me.btnEdit.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEdit.Location = New System.Drawing.Point(242, 82)
+        Me.btnEdit.Location = New System.Drawing.Point(242, 103)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(102, 27)
         Me.btnEdit.TabIndex = 11
@@ -278,7 +278,7 @@ Partial Class TeacherClassManagementForm
         'btnView
         '
         Me.btnView.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnView.Location = New System.Drawing.Point(134, 82)
+        Me.btnView.Location = New System.Drawing.Point(134, 103)
         Me.btnView.Name = "btnView"
         Me.btnView.Size = New System.Drawing.Size(102, 27)
         Me.btnView.TabIndex = 10
@@ -290,7 +290,7 @@ Partial Class TeacherClassManagementForm
         Me.cbExistingClass.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbExistingClass.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbExistingClass.FormattingEnabled = True
-        Me.cbExistingClass.Location = New System.Drawing.Point(71, 51)
+        Me.cbExistingClass.Location = New System.Drawing.Point(71, 72)
         Me.cbExistingClass.Name = "cbExistingClass"
         Me.cbExistingClass.Size = New System.Drawing.Size(533, 25)
         Me.cbExistingClass.TabIndex = 3
@@ -299,7 +299,7 @@ Partial Class TeacherClassManagementForm
         '
         Me.lblExistingClass.AutoSize = True
         Me.lblExistingClass.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblExistingClass.Location = New System.Drawing.Point(15, 51)
+        Me.lblExistingClass.Location = New System.Drawing.Point(15, 72)
         Me.lblExistingClass.Name = "lblExistingClass"
         Me.lblExistingClass.Size = New System.Drawing.Size(50, 21)
         Me.lblExistingClass.TabIndex = 2
@@ -328,6 +328,7 @@ Partial Class TeacherClassManagementForm
         Me.Controls.Add(Me.lblTeacherName)
         Me.Controls.Add(Me.lblName)
         Me.Name = "TeacherClassManagementForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Class Management"
         Me.gbCreateClass.ResumeLayout(False)
         Me.gbCreateClass.PerformLayout()

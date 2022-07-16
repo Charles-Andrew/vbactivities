@@ -90,6 +90,7 @@ Partial Class SubjectForm
         Me.Controls.Add(Me.lblSubjectName)
         Me.Controls.Add(Me.tbSubjectName)
         Me.Name = "SubjectForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Subject Form"
         CType(Me.numericUnits, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

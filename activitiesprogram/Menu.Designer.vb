@@ -27,6 +27,8 @@ Partial Class Menu
         Me.btnTML = New System.Windows.Forms.Button()
         Me.btnSML = New System.Windows.Forms.Button()
         Me.btnSchoolYear = New System.Windows.Forms.Button()
+        Me.lblMenu = New System.Windows.Forms.Label()
+        Me.lblLogout = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'btnSM
@@ -84,7 +86,7 @@ Partial Class Menu
         'btnSchoolYear
         '
         Me.btnSchoolYear.Font = New System.Drawing.Font("Segoe UI Black", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSchoolYear.Image = Global.activitiesprogram.My.Resources.Resources.bookshelf
+        Me.btnSchoolYear.Image = Global.activitiesprogram.My.Resources.Resources.schedule
         Me.btnSchoolYear.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnSchoolYear.Location = New System.Drawing.Point(171, 332)
         Me.btnSchoolYear.Name = "btnSchoolYear"
@@ -94,11 +96,35 @@ Partial Class Menu
         Me.btnSchoolYear.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnSchoolYear.UseVisualStyleBackColor = True
         '
+        'lblMenu
+        '
+        Me.lblMenu.AutoSize = True
+        Me.lblMenu.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.lblMenu.Font = New System.Drawing.Font("Segoe UI Black", 27.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMenu.Location = New System.Drawing.Point(12, 185)
+        Me.lblMenu.Name = "lblMenu"
+        Me.lblMenu.Size = New System.Drawing.Size(136, 50)
+        Me.lblMenu.TabIndex = 5
+        Me.lblMenu.Text = "MENU"
+        '
+        'lblLogout
+        '
+        Me.lblLogout.AutoSize = True
+        Me.lblLogout.Font = New System.Drawing.Font("Segoe UI", 15.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblLogout.ForeColor = System.Drawing.Color.Blue
+        Me.lblLogout.Location = New System.Drawing.Point(33, 371)
+        Me.lblLogout.Name = "lblLogout"
+        Me.lblLogout.Size = New System.Drawing.Size(97, 30)
+        Me.lblLogout.TabIndex = 6
+        Me.lblLogout.Text = "LOGOUT"
+        '
         'Menu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(356, 410)
+        Me.Controls.Add(Me.lblLogout)
+        Me.Controls.Add(Me.lblMenu)
         Me.Controls.Add(Me.btnSchoolYear)
         Me.Controls.Add(Me.btnSM)
         Me.Controls.Add(Me.btnCM)
@@ -108,6 +134,7 @@ Partial Class Menu
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Main Menu"
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
@@ -116,4 +143,6 @@ Partial Class Menu
     Friend WithEvents btnCM As Button
     Friend WithEvents btnSM As Button
     Friend WithEvents btnSchoolYear As Button
+    Friend WithEvents lblMenu As Label
+    Friend WithEvents lblLogout As Label
 End Class

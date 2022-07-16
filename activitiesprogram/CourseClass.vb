@@ -59,20 +59,25 @@ Public Class CourseClass
     End Function
 
     Public Function DeleteCourse(ccc As String) As Integer
-        dbconn.Open()
-        Dim cmd As New MySqlCommand
-        cmd.Connection = Conn
-        cmd.CommandText = "DELETE FROM course WHERE course_code = @CCC"
+        Try
+            dbconn.Open()
+            Dim cmd As New MySqlCommand
+            cmd.Connection = Conn
+            cmd.CommandText = "DELETE FROM course WHERE course_code = @CCC"
 
-        cmd.Parameters.AddWithValue("@CCC", ccc)
-        If cmd.ExecuteNonQuery Then
-            MessageBox.Show("Course successfully deleted.")
-            Return 1
-        Else
-            MessageBox.Show("Something went wrong. Try again.")
-            Return 0
-        End If
+            cmd.Parameters.AddWithValue("@CCC", ccc)
+            If cmd.ExecuteNonQuery Then
+                MessageBox.Show("Course successfully deleted.")
+                Return 1
+            Else
+                MessageBox.Show("Something went wrong. Try again.")
+                Return 0
+            End If
 
-        dbconn.Close()
+            dbconn.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        Return 0
     End Function
 End Class

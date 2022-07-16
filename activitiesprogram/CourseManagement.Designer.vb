@@ -124,6 +124,7 @@ Partial Class CourseManagement
         Me.Controls.Add(Me.btnAdd)
         Me.ForeColor = System.Drawing.Color.White
         Me.Name = "CourseManagement"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Course Management"
         Me.ResumeLayout(False)
         Me.PerformLayout()

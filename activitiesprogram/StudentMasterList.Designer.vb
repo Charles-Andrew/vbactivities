@@ -97,6 +97,7 @@ Partial Class StudentMasterList
         Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.btnAdd)
         Me.Name = "StudentMasterList"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Student Master List"
         CType(Me.dgvStudentViewer, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

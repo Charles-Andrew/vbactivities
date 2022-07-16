@@ -39,18 +39,8 @@ CREATE TABLE `class_offering` (
   CONSTRAINT `co_schoolyear_fk` FOREIGN KEY (`idsy`) REFERENCES `schoolyear_sem` (`idsy`) ON UPDATE CASCADE,
   CONSTRAINT `co_subject_fk` FOREIGN KEY (`idsubject`) REFERENCES `subject` (`idsubject`) ON UPDATE CASCADE,
   CONSTRAINT `co_teacher_fk` FOREIGN KEY (`idteacher`) REFERENCES `teacher` (`idteacher`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `class_offering`
---
-
-LOCK TABLES `class_offering` WRITE;
-/*!40000 ALTER TABLE `class_offering` DISABLE KEYS */;
-INSERT INTO `class_offering` VALUES (4,1,33,1,'Friday-Saturday-Sunday','1:00 PM - 2:00 PM','B-207'),(5,1,33,1,'Friday-Saturday','3:00 pm - 5:00 pm','B-209');
-/*!40000 ALTER TABLE `class_offering` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `course`
@@ -68,16 +58,6 @@ CREATE TABLE `course` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `course`
---
-
-LOCK TABLES `course` WRITE;
-/*!40000 ALTER TABLE `course` DISABLE KEYS */;
-INSERT INTO `course` VALUES (1,'Bachelor of Science in Computer Science','BSCS'),(2,'Bachelor of Science in Information Technology','BSIT'),(5,'Bachelor of Science in Nursing','BSN');
-/*!40000 ALTER TABLE `course` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `schoolyear_sem`
 --
 
@@ -93,14 +73,18 @@ CREATE TABLE `schoolyear_sem` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `schoolyear_sem`
+-- Table structure for table `secretkey`
 --
 
-LOCK TABLES `schoolyear_sem` WRITE;
-/*!40000 ALTER TABLE `schoolyear_sem` DISABLE KEYS */;
-INSERT INTO `schoolyear_sem` VALUES (32,'2020-2021','1st'),(33,'2020-2021','2nd');
-/*!40000 ALTER TABLE `schoolyear_sem` ENABLE KEYS */;
-UNLOCK TABLES;
+DROP TABLE IF EXISTS `secretkey`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `secretkey` (
+  `idsecretkey` int(11) NOT NULL DEFAULT 1,
+  `secretkey` varchar(255) NOT NULL,
+  PRIMARY KEY (`idsecretkey`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Table structure for table `stud_course`
@@ -125,16 +109,6 @@ CREATE TABLE `stud_course` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `stud_course`
---
-
-LOCK TABLES `stud_course` WRITE;
-/*!40000 ALTER TABLE `stud_course` DISABLE KEYS */;
-INSERT INTO `stud_course` VALUES (5,33,1,'4th Year','Regular');
-/*!40000 ALTER TABLE `stud_course` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `student`
 --
 
@@ -154,16 +128,6 @@ CREATE TABLE `student` (
   PRIMARY KEY (`idstudent`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `student`
---
-
-LOCK TABLES `student` WRITE;
-/*!40000 ALTER TABLE `student` DISABLE KEYS */;
-INSERT INTO `student` VALUES (5,'Barsubia','Charles','Andrew','Male','2000-04-19','Rafael Barsubia','Inas Mlang Cotabato','09307694071');
-/*!40000 ALTER TABLE `student` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `student_enroll_class`
@@ -187,15 +151,6 @@ CREATE TABLE `student_enroll_class` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `student_enroll_class`
---
-
-LOCK TABLES `student_enroll_class` WRITE;
-/*!40000 ALTER TABLE `student_enroll_class` DISABLE KEYS */;
-/*!40000 ALTER TABLE `student_enroll_class` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `subject`
 --
 
@@ -207,18 +162,8 @@ CREATE TABLE `subject` (
   `subject_name` varchar(250) NOT NULL,
   `units` decimal(10,1) NOT NULL,
   PRIMARY KEY (`idsubject`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `subject`
---
-
-LOCK TABLES `subject` WRITE;
-/*!40000 ALTER TABLE `subject` DISABLE KEYS */;
-INSERT INTO `subject` VALUES (1,'GEC 5 Math',5.5);
-/*!40000 ALTER TABLE `subject` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `teacher`
@@ -237,16 +182,6 @@ CREATE TABLE `teacher` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `teacher`
---
-
-LOCK TABLES `teacher` WRITE;
-/*!40000 ALTER TABLE `teacher` DISABLE KEYS */;
-INSERT INTO `teacher` VALUES (1,'Charles','Andrew','Barsubia');
-/*!40000 ALTER TABLE `teacher` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `users`
 --
 
@@ -259,18 +194,8 @@ CREATE TABLE `users` (
   `password` varchar(45) NOT NULL,
   `email` varchar(250) NOT NULL,
   PRIMARY KEY (`iduser`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `users`
---
-
-LOCK TABLES `users` WRITE;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (7,'charles','s7YMGkFQEj/QSrCQfQmQ5TniCdmfl8PyGx54d3hciyE=','charles@gmail.com'),(8,'chorls','s7YMGkFQEj/QSrCQfQmQ5TniCdmfl8PyGx54d3hciyE=','qwe@gmail.com');
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -281,4 +206,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-16 12:20:02
+-- Dump completed on 2022-07-16 23:44:35

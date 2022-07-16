@@ -132,6 +132,18 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminUserManagement.Designer.vb">
+      <DependentUpon>AdminUserManagement.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUserManagement.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClassInformation.Designer.vb">
+      <DependentUpon>ClassInformation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ClassInformation.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CourseClass.vb" />
     <Compile Include="CourseForm.Designer.vb">
       <DependentUpon>CourseForm.vb</DependentUpon>
@@ -146,6 +158,13 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DBClass.vb" />
+    <Compile Include="ModifyGradeClass.vb" />
+    <Compile Include="ModifyGrades.Designer.vb">
+      <DependentUpon>ModifyGrades.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ModifyGrades.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SchoolYearClass.vb" />
     <Compile Include="SchoolYearForm.Designer.vb">
       <DependentUpon>SchoolYearForm.vb</DependentUpon>
@@ -245,8 +264,15 @@
     <Compile Include="TeacherMasterList.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="UserClass.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AdminUserManagement.resx">
+      <DependentUpon>AdminUserManagement.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClassInformation.resx">
+      <DependentUpon>ClassInformation.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CourseForm.resx">
       <DependentUpon>CourseForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -258,6 +284,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ModifyGrades.resx">
+      <DependentUpon>ModifyGrades.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

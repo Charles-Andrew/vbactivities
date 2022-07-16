@@ -101,6 +101,7 @@ Partial Class CourseForm
         Me.Controls.Add(Me.lblCourseCode)
         Me.Controls.Add(Me.lblCourseName)
         Me.Name = "CourseForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Course Form"
         Me.ResumeLayout(False)
         Me.PerformLayout()

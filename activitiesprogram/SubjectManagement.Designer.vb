@@ -91,6 +91,7 @@ Partial Class SubjectManagement
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.cbSubject)
         Me.Name = "SubjectManagement"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Subject Management"
         Me.ResumeLayout(False)
         Me.PerformLayout()

@@ -2,9 +2,6 @@
 Public Class Login
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         btnLogin.Enabled = False
-        Dim m As New Menu
-        m.Show()
-        Me.Close()
     End Sub
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
@@ -34,11 +31,6 @@ Public Class Login
         dbconn.Close()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim r As New registration
-        r.ShowDialog()
-    End Sub
-
     Private Sub CheckEmpty()
         If tbPassword.Text = "" OrElse tbUsername.Text = "" Then
             btnLogin.Enabled = False
@@ -53,5 +45,17 @@ Public Class Login
 
     Private Sub tbPassword_TextChanged(sender As Object, e As EventArgs) Handles tbPassword.TextChanged
         CheckEmpty()
+    End Sub
+
+    Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
+        Dim r As New registration
+        r.ShowDialog()
+    End Sub
+
+    Private Sub btnAdmin_Click(sender As Object, e As EventArgs) Handles btnAdmin.Click
+        Dim a As New AdminUserManagement
+        Me.Hide()
+        a.ShowDialog()
+        Me.Show()
     End Sub
 End Class

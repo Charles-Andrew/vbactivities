@@ -333,6 +333,7 @@ Partial Class StudentForm
         Me.Controls.Add(Me.lblFname)
         Me.Controls.Add(Me.lblLname)
         Me.Name = "StudentForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Add Student"
         Me.ResumeLayout(False)
         Me.PerformLayout()

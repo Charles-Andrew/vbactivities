@@ -31,4 +31,10 @@
         Dim syf As New SchoolYearForm
         syf.ShowDialog()
     End Sub
+
+    Private Sub lblLogout_DoubleClick(sender As Object, e As EventArgs) Handles lblLogout.DoubleClick
+        Dim l As New Login
+        l.Show()
+        Me.Dispose()
+    End Sub
 End Class

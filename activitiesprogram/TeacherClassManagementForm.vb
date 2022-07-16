@@ -148,6 +148,7 @@ Public Class TeacherClassManagementForm
     End Sub
     Private Sub btnAddClass_Click(sender As Object, e As EventArgs) Handles btnAddClass.Click
         If btnAddClass.Text = "Edit Class" Then
+            Daystring = ""
             Dim c As Integer = 0
             For Each item As String In clbDay.CheckedItems
                 If item <> "" Then
@@ -231,11 +232,14 @@ Public Class TeacherClassManagementForm
     End Sub
 
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
-        gbCreateClass.Text = "Edit Class"
-        btnBack.Visible = True
-        btnAddClass.Text = "Edit Class"
-        CurItemID = cbExistingClass.SelectedValue
-        LoadEditInfo()
+        If cbExistingClass.Text = "" OrElse cbExistingSY.Text = "" Then
+        Else
+            gbCreateClass.Text = "Edit Class"
+            btnBack.Visible = True
+            btnAddClass.Text = "Edit Class"
+            CurItemID = cbExistingClass.SelectedValue
+            LoadEditInfo()
+        End If
     End Sub
 
     Private Sub LoadEditInfo()
@@ -266,6 +270,9 @@ Public Class TeacherClassManagementForm
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+        ClearCreateDetails()
+    End Sub
+    Private Sub ClearCreateDetails()
         gbCreateClass.Text = "Create New Class"
         btnBack.Visible = True
         btnAddClass.Text = "Add Class"
@@ -280,14 +287,27 @@ Public Class TeacherClassManagementForm
     End Sub
 
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
-        Dim TempItemToDelete As String = cbExistingClass.SelectedValue
-        Dim m As DialogResult = MessageBox.Show("Are you sure you want to delete record with Class ID: " +
-                                                TempItemToDelete, "Delete Confimation", MessageBoxButtons.OKCancel)
-        If m = DialogResult.OK Then
-            Dim tcmc As New TeacherClassManagementClass
-            tcmc.DeleteClass(TempItemToDelete)
-            LoadExistingItems()
-            LoadCBItems()
+        If cbExistingClass.Text = "" OrElse cbExistingSY.Text = "" Then
+        Else
+            Dim TempItemToDelete As String = cbExistingClass.SelectedValue
+            Dim m As DialogResult = MessageBox.Show("Are you sure you want to delete record with Class ID: " +
+                                                    TempItemToDelete, "Delete Confimation", MessageBoxButtons.OKCancel)
+            If m = DialogResult.OK Then
+                Dim tcmc As New TeacherClassManagementClass
+                tcmc.DeleteClass(TempItemToDelete)
+                LoadExistingItems()
+                LoadCBItems()
+                ClearCreateDetails()
+            End If
+        End If
+    End Sub
+
+    Private Sub btnView_Click(sender As Object, e As EventArgs) Handles btnView.Click
+        If cbExistingClass.Text = "" OrElse cbExistingSY.Text = "" Then
+        Else
+            Dim ci As New ClassInformation
+            ci.ClassID = cbExistingClass.SelectedValue
+            ci.ShowDialog()
         End If
     End Sub
 End Class

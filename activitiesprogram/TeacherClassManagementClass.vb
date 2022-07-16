@@ -102,16 +102,20 @@
     End Sub
 
     Public Sub DeleteClass(id As Integer)
-        Dim db As New DBClass
-        db.Open()
-        Dim cmd = db.cmd
-        cmd.Connection = db.conn
+        Try
+            Dim db As New DBClass
+            db.Open()
+            Dim cmd = db.cmd
+            cmd.Connection = db.conn
 
-        cmd.CommandText = "DELETE FROM class_offering WHERE idclass_offering = @id"
-        cmd.Parameters.AddWithValue("@id", id)
-        If cmd.ExecuteNonQuery() Then
-            MessageBox.Show("Successfully deleted selected class.")
-        End If
-        db.Close()
+            cmd.CommandText = "DELETE FROM class_offering WHERE idclass_offering = @id"
+            cmd.Parameters.AddWithValue("@id", id)
+            If cmd.ExecuteNonQuery() Then
+                MessageBox.Show("Successfully deleted selected class.")
+            End If
+            db.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
 End Class

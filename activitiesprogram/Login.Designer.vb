@@ -28,8 +28,8 @@ Partial Class Login
         Me.lblPassword = New System.Windows.Forms.Label()
         Me.tbUsername = New System.Windows.Forms.TextBox()
         Me.tbPassword = New System.Windows.Forms.TextBox()
-        Me.btnSwitch = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnRegister = New System.Windows.Forms.Button()
+        Me.btnAdmin = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'btnLogin
@@ -91,25 +91,24 @@ Partial Class Login
         Me.tbPassword.TabIndex = 5
         Me.tbPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'btnSwitch
+        'btnRegister
         '
-        Me.btnSwitch.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSwitch.Location = New System.Drawing.Point(12, 12)
-        Me.btnSwitch.Name = "btnSwitch"
-        Me.btnSwitch.Size = New System.Drawing.Size(75, 23)
-        Me.btnSwitch.TabIndex = 6
-        Me.btnSwitch.Text = "Admin"
-        Me.btnSwitch.UseVisualStyleBackColor = True
+        Me.btnRegister.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRegister.Location = New System.Drawing.Point(128, 198)
+        Me.btnRegister.Name = "btnRegister"
+        Me.btnRegister.Size = New System.Drawing.Size(159, 26)
+        Me.btnRegister.TabIndex = 7
+        Me.btnRegister.Text = "Register"
+        Me.btnRegister.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btnAdmin
         '
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(128, 198)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(159, 26)
-        Me.Button1.TabIndex = 7
-        Me.Button1.Text = "Register"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnAdmin.Location = New System.Drawing.Point(13, 12)
+        Me.btnAdmin.Name = "btnAdmin"
+        Me.btnAdmin.Size = New System.Drawing.Size(75, 23)
+        Me.btnAdmin.TabIndex = 8
+        Me.btnAdmin.Text = "Admin"
+        Me.btnAdmin.UseVisualStyleBackColor = True
         '
         'Login
         '
@@ -117,8 +116,8 @@ Partial Class Login
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(420, 251)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.btnSwitch)
+        Me.Controls.Add(Me.btnAdmin)
+        Me.Controls.Add(Me.btnRegister)
         Me.Controls.Add(Me.tbPassword)
         Me.Controls.Add(Me.tbUsername)
         Me.Controls.Add(Me.lblPassword)
@@ -139,6 +138,6 @@ Partial Class Login
     Friend WithEvents lblPassword As Label
     Friend WithEvents tbUsername As TextBox
     Friend WithEvents tbPassword As TextBox
-    Friend WithEvents btnSwitch As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnRegister As Button
+    Friend WithEvents btnAdmin As Button
 End Class

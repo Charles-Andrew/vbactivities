@@ -59,14 +59,19 @@ Public Class SubjectManagement
     End Sub
 
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
-        Dim TempID As String = cbSubject.SelectedValue
-        Dim m As DialogResult = MessageBox.Show("Are you sure you want to delete record with Subject ID: " +
+        Try
+            Dim TempID As String = cbSubject.SelectedValue
+            Dim m As DialogResult = MessageBox.Show("Are you sure you want to delete record with Subject ID: " +
                                                 TempID, "Delete Confimation", MessageBoxButtons.OKCancel)
-        If m = DialogResult.OK Then
-            Dim sc As New SubjectClass
-            sc.DeleteSubject(TempID)
-            LoadCBitems()
-        End If
+            If m = DialogResult.OK Then
+                Dim sc As New SubjectClass
+                sc.DeleteSubject(TempID)
+                LoadCBitems()
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
 
     End Sub
 End Class

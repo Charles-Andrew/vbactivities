@@ -38,20 +38,24 @@
     End Sub
 
     Public Sub UnEnroll()
-        Dim db As New DBClass
-        db.Open()
-        Dim cmd = db.cmd
+        Try
+            Dim db As New DBClass
+            db.Open()
+            Dim cmd = db.cmd
 
-        cmd.Connection = db.conn
-        cmd.CommandText = "DELETE FROM student_enroll_class WHERE idstudent = @idstudent AND idclass_offering = @ico"
-        cmd.Parameters.AddWithValue("@idstudent", StudentID)
-        cmd.Parameters.AddWithValue("@ico", ClassOfferID)
-        If cmd.ExecuteNonQuery() Then
-            MessageBox.Show("Selected subject successfully unenrolled.")
-        Else
-            MessageBox.Show("Something went wrong. Try again.")
-        End If
-        db.Close()
+            cmd.Connection = db.conn
+            cmd.CommandText = "DELETE FROM student_enroll_class WHERE idstudent = @idstudent AND idclass_offering = @ico"
+            cmd.Parameters.AddWithValue("@idstudent", StudentID)
+            cmd.Parameters.AddWithValue("@ico", ClassOfferID)
+            If cmd.ExecuteNonQuery() Then
+                MessageBox.Show("Selected subject successfully unenrolled.")
+            Else
+                MessageBox.Show("Something went wrong. Try again.")
+            End If
+            db.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
 
 End Class

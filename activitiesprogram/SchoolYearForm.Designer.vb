@@ -102,6 +102,7 @@ Partial Class SchoolYearForm
         Me.Controls.Add(Me.lblMain)
         Me.Controls.Add(Me.numericFrom)
         Me.Name = "SchoolYearForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "School Year Form"
         CType(Me.numericFrom, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

@@ -56,18 +56,23 @@ Public Class SubjectClass
         dbconn.Close()
     End Function
     Public Function DeleteSubject(id As Integer) As Integer
-        dbconn.Open()
-        Dim cmd As New MySqlCommand
-        cmd.Connection = Conn
-        cmd.CommandText = "DELETE FROM subject WHERE idsubject = @ID"
-        cmd.Parameters.AddWithValue("@ID", id)
-        If cmd.ExecuteNonQuery Then
-            MessageBox.Show("Selected subject was deleted successfully.")
-            Return 1
-        Else
-            MessageBox.Show("Something went wrong. Please try again.")
-            Return 0
-        End If
-        dbconn.Close()
+        Try
+            dbconn.Open()
+            Dim cmd As New MySqlCommand
+            cmd.Connection = Conn
+            cmd.CommandText = "DELETE FROM subject WHERE idsubject = @ID"
+            cmd.Parameters.AddWithValue("@ID", id)
+            If cmd.ExecuteNonQuery Then
+                MessageBox.Show("Selected subject was deleted successfully.")
+                Return 1
+            Else
+                MessageBox.Show("Something went wrong. Please try again.")
+                Return 0
+            End If
+            dbconn.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+        Return 0
     End Function
 End Class

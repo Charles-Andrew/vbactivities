@@ -45,13 +45,17 @@ Public Class CourseManagement
     End Sub
 
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
-        Dim TempCode As String = tbCourseCode.Text
-        Dim m As DialogResult = MessageBox.Show("Are you sure you want to delete: " +
-                                                cbCourse.Text + " course?", "Delete Confimation", MessageBoxButtons.OKCancel)
-        If m = DialogResult.OK Then
-            Dim cc As New CourseClass
-            cc.DeleteCourse(TempCode)
-            CBLoadData()
-        End If
+        Try
+            Dim TempCode As String = tbCourseCode.Text
+            Dim m As DialogResult = MessageBox.Show("Are you sure you want to delete: " +
+                                                    cbCourse.Text + " course?", "Delete Confimation", MessageBoxButtons.OKCancel)
+            If m = DialogResult.OK Then
+                Dim cc As New CourseClass
+                cc.DeleteCourse(TempCode)
+                CBLoadData()
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
 End Class
