@@ -36,10 +36,10 @@ CREATE TABLE `class_offering` (
   KEY `subject_fk_idx` (`idsubject`),
   KEY `schoolyear_fk_idx` (`idsy`),
   KEY `teacher_fk_idx` (`idteacher`),
-  CONSTRAINT `co_schoolyear_fk` FOREIGN KEY (`idsy`) REFERENCES `schoolyear_sem` (`idsy`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `co_subject_fk` FOREIGN KEY (`idsubject`) REFERENCES `subject` (`idsubject`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `co_teacher_fk` FOREIGN KEY (`idteacher`) REFERENCES `teacher` (`idteacher`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+  CONSTRAINT `co_schoolyear_fk` FOREIGN KEY (`idsy`) REFERENCES `schoolyear_sem` (`idsy`) ON UPDATE CASCADE,
+  CONSTRAINT `co_subject_fk` FOREIGN KEY (`idsubject`) REFERENCES `subject` (`idsubject`) ON UPDATE CASCADE,
+  CONSTRAINT `co_teacher_fk` FOREIGN KEY (`idteacher`) REFERENCES `teacher` (`idteacher`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,7 +48,7 @@ CREATE TABLE `class_offering` (
 
 LOCK TABLES `class_offering` WRITE;
 /*!40000 ALTER TABLE `class_offering` DISABLE KEYS */;
-INSERT INTO `class_offering` VALUES (4,1,33,1,'Wednesday-Thursday-Friday','1:00 PM - 2:00 PM','B-207'),(5,1,32,1,'Friday','3:00 pm - 5:00 pm','B-209');
+INSERT INTO `class_offering` VALUES (4,1,33,1,'Friday-Saturday-Sunday','1:00 PM - 2:00 PM','B-207'),(5,1,33,1,'Friday-Saturday','3:00 pm - 5:00 pm','B-209');
 /*!40000 ALTER TABLE `class_offering` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -120,7 +120,7 @@ CREATE TABLE `stud_course` (
   KEY `schoolyear_fk_idx` (`idsy`),
   CONSTRAINT `course_fk` FOREIGN KEY (`idcourse`) REFERENCES `course` (`idcourse`) ON UPDATE CASCADE,
   CONSTRAINT `schoolyear_fk` FOREIGN KEY (`idsy`) REFERENCES `schoolyear_sem` (`idsy`) ON UPDATE CASCADE,
-  CONSTRAINT `student_fk` FOREIGN KEY (`idstudent`) REFERENCES `student` (`idstudent`) ON UPDATE CASCADE
+  CONSTRAINT `student_fk` FOREIGN KEY (`idstudent`) REFERENCES `student` (`idstudent`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -175,14 +175,14 @@ DROP TABLE IF EXISTS `student_enroll_class`;
 CREATE TABLE `student_enroll_class` (
   `idstudent` int(11) NOT NULL,
   `idclass_offering` int(11) NOT NULL,
-  `midterm_grade` float NOT NULL,
-  `finals_grade` float NOT NULL,
-  `FinalGrade` float NOT NULL,
-  `remarks` varchar(45) NOT NULL,
+  `midterm_grade` int(11) NOT NULL DEFAULT 0,
+  `finals_grade` int(11) NOT NULL DEFAULT 0,
+  `FinalGrade` int(11) NOT NULL DEFAULT 0,
+  `remarks` varchar(255) NOT NULL DEFAULT 'N/A',
   KEY `sec_student_fk_idx` (`idstudent`),
   KEY `sec_co_fk_idx` (`idclass_offering`),
-  CONSTRAINT `sec_co_fk` FOREIGN KEY (`idclass_offering`) REFERENCES `class_offering` (`idclass_offering`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `sec_student_fk` FOREIGN KEY (`idstudent`) REFERENCES `student` (`idstudent`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `sec_co_fk` FOREIGN KEY (`idclass_offering`) REFERENCES `class_offering` (`idclass_offering`) ON UPDATE CASCADE,
+  CONSTRAINT `sec_student_fk` FOREIGN KEY (`idstudent`) REFERENCES `student` (`idstudent`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -281,4 +281,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-16 10:07:49
+-- Dump completed on 2022-07-16 12:20:02
