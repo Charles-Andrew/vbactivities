@@ -3,6 +3,10 @@
 Public Class StudentMasterList
     Public Admin As Boolean = False
     Private Sub StudentMasterList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.MinimizeBox = False
+        Me.MaximizeBox = False
+        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.FixedDialog
+
         LoadStudentData()
         If Not Admin Then
             btnDelete.Enabled = False

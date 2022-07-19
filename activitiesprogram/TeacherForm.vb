@@ -2,6 +2,10 @@
 
 Public Class TeacherForm
     Private Sub TeacherForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.MinimizeBox = False
+        Me.MaximizeBox = False
+        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.FixedDialog
+
         btnAdd.Enabled = False
     End Sub
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click

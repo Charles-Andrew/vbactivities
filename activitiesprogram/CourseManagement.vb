@@ -2,6 +2,10 @@
 
 Public Class CourseManagement
     Private Sub CourseManagement_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.MinimizeBox = False
+        Me.MaximizeBox = False
+        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.FixedDialog
+
         CBLoadData()
     End Sub
 

@@ -2,6 +2,10 @@
 
 Public Class SubjectManagement
     Private Sub SubjectManagement_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.MinimizeBox = False
+        Me.MaximizeBox = False
+        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.FixedDialog
+
         LoadCBitems()
     End Sub
     Private Sub LoadCBitems()

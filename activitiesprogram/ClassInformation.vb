@@ -1,6 +1,10 @@
 ﻿Public Class ClassInformation
     Public ClassID As Integer = 0
     Private Sub ClassInformation_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.MinimizeBox = False
+        Me.MaximizeBox = False
+        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.FixedDialog
+
         If ClassID <> 0 Then
             ClassLoad()
             InfoLoad()

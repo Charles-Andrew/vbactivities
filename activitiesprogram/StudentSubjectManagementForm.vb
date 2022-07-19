@@ -2,6 +2,10 @@
     Public StudentID As Integer = 0
     Public StudentName As String = ""
     Private Sub StudentSubjectManagementForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.MinimizeBox = False
+        Me.MaximizeBox = False
+        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.FixedDialog
+
         LoadInitItems()
         If cbAvailableSubjects.Text = "" Then
             btnEnroll.Enabled = False

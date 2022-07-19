@@ -5,6 +5,10 @@ Public Class TeacherClassManagementForm
     Dim Daystring As String = ""
     Dim CurItemID As Integer = 0
     Private Sub TeacherClassManagementForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.MinimizeBox = False
+        Me.MaximizeBox = False
+        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.FixedDialog
+
         loadItems()
         btnAddClass.Enabled = False
     End Sub

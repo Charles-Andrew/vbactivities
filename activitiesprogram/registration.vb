@@ -2,6 +2,10 @@
 Imports MySql.Data.MySqlClient
 Public Class registration
     Private Sub registration_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.MinimizeBox = False
+        Me.MaximizeBox = False
+        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.FixedDialog
+
         btnRegister.Enabled = False
         lblInfo.Visible = False
     End Sub

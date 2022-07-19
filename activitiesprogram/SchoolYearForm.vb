@@ -2,6 +2,10 @@
 
 Public Class SchoolYearForm
     Private Sub SchoolYearForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.MinimizeBox = False
+        Me.MaximizeBox = False
+        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.FixedDialog
+
         numericFrom.Value = DateTime.Now.Year
         btnAdd.Enabled = False
         LoadAllSY()

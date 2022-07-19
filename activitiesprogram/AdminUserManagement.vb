@@ -1,6 +1,10 @@
 ﻿Public Class AdminUserManagement
     Dim id As Integer = 0
     Private Sub AdminUserManagement_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.MinimizeBox = False
+        Me.MaximizeBox = False
+        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.FixedDialog
+
         If CheckExistAdmin() Then
         Else
             btnLogin.Text = "Set"

@@ -3,6 +3,10 @@
     Public ClassID As Integer = 0
     Public NameOfUser As String = ""
     Private Sub ModifyGrades_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.MinimizeBox = False
+        Me.MaximizeBox = False
+        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.FixedDialog
+
         If NameOfUser <> "" Then
             lblValName.Text = NameOfUser
         End If

@@ -1,6 +1,10 @@
 ﻿Public Class Menu
     Public Admin As Boolean = False
     Private Sub Menu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.MinimizeBox = False
+        Me.MaximizeBox = False
+        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.FixedDialog
+
         Me.TopMost = True
     End Sub
 

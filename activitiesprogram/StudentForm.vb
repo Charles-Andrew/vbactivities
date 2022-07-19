@@ -4,6 +4,10 @@ Imports MySql.Data.MySqlClient
 Public Class StudentForm
     Public tempid As Integer = 0
     Private Sub StudentAdd_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.MinimizeBox = False
+        Me.MaximizeBox = False
+        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.FixedDialog
+
         btnAdd.Enabled = False
         LoadCBItems()
     End Sub

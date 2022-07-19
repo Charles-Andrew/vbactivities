@@ -1,6 +1,10 @@
 ﻿Imports MySql.Data.MySqlClient
 Public Class Login
     Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.MinimizeBox = False
+        Me.MaximizeBox = False
+        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.FixedDialog
+
         btnLogin.Enabled = False
     End Sub
 
