@@ -45,10 +45,14 @@
     End Sub
 
     Private Sub btnSchoolYear_Click(sender As Object, e As EventArgs) Handles btnSchoolYear.Click
-        Dim syf As New SchoolYearForm
-        Me.Hide()
-        syf.ShowDialog()
-        Me.Show()
+        If Admin Then
+            Dim syf As New SchoolYearForm
+            Me.Hide()
+            syf.ShowDialog()
+            Me.Show()
+        Else
+            MessageBox.Show("Only Administrator can access the school year tab.")
+        End If
     End Sub
 
     Private Sub lblLogout_DoubleClick(sender As Object, e As EventArgs) Handles lblLogout.DoubleClick

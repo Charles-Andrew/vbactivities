@@ -80,7 +80,7 @@ Public Class SchoolYearForm
         lblInfo.Visible = True
     End Sub
 
-    Private Sub btnSetSY_Click(sender As Object, e As EventArgs) Handles btnSetSY.Click
+    Private Sub btnSetSY_Click(sender As Object, e As EventArgs)
         If cbSY.Text <> "" Then
             If Not HaveActiveSY() Then
                 Dim db As New DBClass
