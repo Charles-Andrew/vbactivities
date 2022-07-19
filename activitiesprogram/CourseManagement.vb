@@ -35,17 +35,19 @@ Public Class CourseManagement
     End Sub
 
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
-        Dim cf As New CourseForm
-        cf.btnAdd.Text = "Update Course"
-        cf.tbCourseName.Text = cbCourse.Text
-        cf.tbCourseCode.Text = cbCourse.SelectedValue.ToString
-        cf.ccc = cbCourse.SelectedValue.ToString
-        cf.ShowDialog()
-        CBLoadData()
+        If cbCourse.Text <> "" Then
+            Dim cf As New CourseForm
+            cf.btnAdd.Text = "Update Course"
+            cf.tbCourseName.Text = cbCourse.Text
+            cf.tbCourseCode.Text = cbCourse.SelectedValue.ToString
+            cf.ccc = cbCourse.SelectedValue.ToString
+            cf.ShowDialog()
+            CBLoadData()
+        End If
     End Sub
 
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
-        Try
+        If cbCourse.Text <> "" Then
             Dim TempCode As String = tbCourseCode.Text
             Dim m As DialogResult = MessageBox.Show("Are you sure you want to delete: " +
                                                     cbCourse.Text + " course?", "Delete Confimation", MessageBoxButtons.OKCancel)
@@ -54,8 +56,6 @@ Public Class CourseManagement
                 cc.DeleteCourse(TempCode)
                 CBLoadData()
             End If
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
+        End If
     End Sub
 End Class

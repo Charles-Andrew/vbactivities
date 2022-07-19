@@ -31,6 +31,7 @@ Partial Class StudentSubjectManagementForm
         Me.btnEnroll = New System.Windows.Forms.Button()
         Me.lblListOfAvailableSubjects = New System.Windows.Forms.Label()
         Me.cbAvailableSubjects = New System.Windows.Forms.ComboBox()
+        Me.lblTotalUnits = New System.Windows.Forms.Label()
         CType(Me.dgvStudentSubjects, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -127,12 +128,23 @@ Partial Class StudentSubjectManagementForm
         Me.cbAvailableSubjects.Size = New System.Drawing.Size(669, 28)
         Me.cbAvailableSubjects.TabIndex = 8
         '
+        'lblTotalUnits
+        '
+        Me.lblTotalUnits.AutoSize = True
+        Me.lblTotalUnits.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotalUnits.Location = New System.Drawing.Point(647, 113)
+        Me.lblTotalUnits.Name = "lblTotalUnits"
+        Me.lblTotalUnits.Size = New System.Drawing.Size(75, 17)
+        Me.lblTotalUnits.TabIndex = 11
+        Me.lblTotalUnits.Text = "Total Units:"
+        '
         'StudentSubjectManagementForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(800, 322)
+        Me.Controls.Add(Me.lblTotalUnits)
         Me.Controls.Add(Me.btnEnroll)
         Me.Controls.Add(Me.lblListOfAvailableSubjects)
         Me.Controls.Add(Me.cbAvailableSubjects)
@@ -158,4 +170,5 @@ Partial Class StudentSubjectManagementForm
     Friend WithEvents btnEnroll As Button
     Friend WithEvents lblListOfAvailableSubjects As Label
     Friend WithEvents cbAvailableSubjects As ComboBox
+    Friend WithEvents lblTotalUnits As Label
 End Class

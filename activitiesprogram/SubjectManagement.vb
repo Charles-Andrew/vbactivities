@@ -29,37 +29,39 @@ Public Class SubjectManagement
     End Sub
 
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
-        Dim TempSubjectName As String = ""
-        Dim TempUnits As Double = 0.0
-        dbconn.Open()
-        Dim cmd As New MySqlCommand
-        Dim dr As MySqlDataReader
+        If cbSubject.Text <> "" Then
+            Dim TempSubjectName As String = ""
+            Dim TempUnits As Double = 0.0
+            dbconn.Open()
+            Dim cmd As New MySqlCommand
+            Dim dr As MySqlDataReader
 
-        cmd.Connection = Conn
-        cmd.CommandText = "SELECT * FROM subject WHERE idsubject = @idsubject"
-        cmd.Parameters.AddWithValue("@idsubject", cbSubject.SelectedValue.ToString)
-        dr = cmd.ExecuteReader
+            cmd.Connection = Conn
+            cmd.CommandText = "SELECT * FROM subject WHERE idsubject = @idsubject"
+            cmd.Parameters.AddWithValue("@idsubject", cbSubject.SelectedValue.ToString)
+            dr = cmd.ExecuteReader
 
-        If dr.HasRows Then
-            While dr.Read
-                TempSubjectName = dr("subject_name").ToString
-                TempUnits = dr("units")
-            End While
+            If dr.HasRows Then
+                While dr.Read
+                    TempSubjectName = dr("subject_name").ToString
+                    TempUnits = dr("units")
+                End While
+            End If
+
+            Dim sf As New SubjectForm
+            sf.btnAdd.Text = "Edit Subject"
+            sf.tbSubjectName.Text = TempSubjectName
+            sf.numericUnits.Value = TempUnits
+            sf.tempid = Integer.Parse(cbSubject.SelectedValue.ToString)
+            sf.ShowDialog()
+            LoadCBitems()
+
+            dbconn.Close()
         End If
-
-        Dim sf As New SubjectForm
-        sf.btnAdd.Text = "Edit Subject"
-        sf.tbSubjectName.Text = TempSubjectName
-        sf.numericUnits.Value = TempUnits
-        sf.tempid = Integer.Parse(cbSubject.SelectedValue.ToString)
-        sf.ShowDialog()
-        LoadCBitems()
-
-        dbconn.Close()
     End Sub
 
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
-        Try
+        If cbSubject.Text <> "" Then
             Dim TempID As String = cbSubject.SelectedValue
             Dim m As DialogResult = MessageBox.Show("Are you sure you want to delete record with Subject ID: " +
                                                 TempID, "Delete Confimation", MessageBoxButtons.OKCancel)
@@ -68,10 +70,6 @@ Public Class SubjectManagement
                 sc.DeleteSubject(TempID)
                 LoadCBitems()
             End If
-
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
-
+        End If
     End Sub
 End Class

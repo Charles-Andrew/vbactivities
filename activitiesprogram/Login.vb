@@ -24,12 +24,42 @@ Public Class Login
             m.Show()
             Me.Close()
         Else
-            MessageBox.Show("Incorrect details. Please try again.")
+            If CheckAdmin(tbUsername.Text, l.hashProp) Then
+                Dim m As New Menu
+                m.Admin = True
+                m.Show()
+                Me.Close()
+            Else
+                MessageBox.Show("Incorrect details. Please try again.")
+            End If
         End If
 
         rd.Close()
         dbconn.Close()
     End Sub
+
+    Private Function CheckAdmin(u As String, p As String) As Boolean
+        Dim db As New DBClass
+        db.Open()
+        Dim cmd = db.cmd
+        Dim dr = db.dr
+        cmd.Connection = db.conn
+        cmd.CommandText = "SELECT * FROM admin WHERE username=@u AND password=@p"
+        cmd.Parameters.AddWithValue("@u", u)
+        cmd.Parameters.AddWithValue("@p", p)
+        dr = cmd.ExecuteReader
+        If dr.HasRows Then
+            Dim a As New AdminClass
+            While dr.Read
+                a.SetLoginIndicator(dr("idadmin"))
+            End While
+            Return True
+        Else
+            Return False
+        End If
+        db.Close()
+
+    End Function
 
     Private Sub CheckEmpty()
         If tbPassword.Text = "" OrElse tbUsername.Text = "" Then

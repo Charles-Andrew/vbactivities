@@ -66,4 +66,18 @@
             ClassLoad()
         End If
     End Sub
+
+    Private Sub btnDrop_Click(sender As Object, e As EventArgs) Handles btnDrop.Click
+        If dgvStudentView.Rows.Count <> 0 Then
+            Dim m As DialogResult = MessageBox.Show("Are you sure you want to drop the selected student?", "Student Drop Confimation", MessageBoxButtons.YesNo)
+
+            If m = DialogResult.Yes Then
+                Dim ssmc As New StudentSubjectManagementClass
+                ssmc.StudentID = dgvStudentView.CurrentRow.Cells(0).Value
+                ssmc.ClassOfferID = ClassID
+                ssmc.UnEnroll()
+                ClassLoad()
+            End If
+        End If
+    End Sub
 End Class

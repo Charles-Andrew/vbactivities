@@ -45,7 +45,7 @@ Public Class TeacherClassManagementForm
         _db.Open()
         Dim _cmd = _db.cmd
         _cmd.Connection = _db.conn
-        _cmd.CommandText = "SELECT idsy, CONCAT(year,' ', sem, ' Semester') as Sem FROM schoolyear_sem ORDER BY year ASC"
+        _cmd.CommandText = "SELECT idsy, CONCAT(year,' ', sem, ' Semester') as Sem FROM schoolyear_sem WHERE idsy = (SELECT * FROM active_sy) ORDER BY year ASC"
         Dim _dr = _db.dr
         _dr = _cmd.ExecuteReader()
         Dim _tb As New DataTable
@@ -95,7 +95,7 @@ Public Class TeacherClassManagementForm
         cmd.Connection = db.conn
         cmd.CommandText = "SELECT schoolyear_sem.idsy, CONCAT(year,' ', sem, ' Semester') as'SY' 
                            FROM class_offering JOIN schoolyear_sem WHERE class_offering.idsy = schoolyear_sem.idsy 
-                           AND class_offering.idteacher=@idteacher"
+                           AND class_offering.idteacher=@idteacher AND class_offering.idsy = (SELECT * FROM active_sy)"
         cmd.Parameters.AddWithValue("@idteacher", TeacherID)
         dr = cmd.ExecuteReader
         Dim dt As New DataTable
@@ -115,14 +115,16 @@ Public Class TeacherClassManagementForm
         If cbExistingDay.Text = "All" Then
             cmd.CommandText = "SELECT *, CONCAT(s.subject_name,' (',co.day,') - ',co.time) as SN FROM class_offering as co JOIN subject as s JOIN schoolyear_sem as ss 
                            WHERE s.idsubject = co.idsubject AND ss.idsy = co.idsy AND co.day LIKE '%%' 
-                           AND ss.idsy = @cbid"
+                           AND ss.idsy = @cbid AND co.idteacher=@IDT"
             cmd.Parameters.AddWithValue("@cbid", cbExistingSY.SelectedValue)
+            cmd.Parameters.AddWithValue("@IDT", TeacherID)
 
         Else
             cmd.CommandText = "SELECT *, CONCAT(s.subject_name,' (',co.day,') - ',co.time) as SN FROM class_offering as co JOIN subject as s JOIN schoolyear_sem as ss 
                            WHERE s.idsubject = co.idsubject AND ss.idsy = co.idsy AND co.day LIKE '%" + cbExistingDay.Text + "%' 
-                           AND ss.idsy = @cbid"
+                           AND ss.idsy = @cbid AND co.idteacher=@IDT"
             cmd.Parameters.AddWithValue("@cbid", cbExistingSY.SelectedValue)
+            cmd.Parameters.AddWithValue("@IDT", TeacherID)
         End If
         Dim dr = db.dr
         dr = cmd.ExecuteReader

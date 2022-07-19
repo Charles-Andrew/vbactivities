@@ -34,6 +34,7 @@ Partial Class ClassInformation
         Me.lblValName = New System.Windows.Forms.Label()
         Me.lblStudentCount = New System.Windows.Forms.Label()
         Me.btnModify = New System.Windows.Forms.Button()
+        Me.btnDrop = New System.Windows.Forms.Button()
         CType(Me.dgvStudentView, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -148,12 +149,22 @@ Partial Class ClassInformation
         'btnModify
         '
         Me.btnModify.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnModify.Location = New System.Drawing.Point(323, 285)
+        Me.btnModify.Location = New System.Drawing.Point(230, 289)
         Me.btnModify.Name = "btnModify"
         Me.btnModify.Size = New System.Drawing.Size(162, 43)
         Me.btnModify.TabIndex = 9
         Me.btnModify.Text = "Update"
         Me.btnModify.UseVisualStyleBackColor = True
+        '
+        'btnDrop
+        '
+        Me.btnDrop.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDrop.Location = New System.Drawing.Point(398, 289)
+        Me.btnDrop.Name = "btnDrop"
+        Me.btnDrop.Size = New System.Drawing.Size(162, 43)
+        Me.btnDrop.TabIndex = 10
+        Me.btnDrop.Text = "Drop"
+        Me.btnDrop.UseVisualStyleBackColor = True
         '
         'ClassInformation
         '
@@ -161,6 +172,7 @@ Partial Class ClassInformation
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(800, 344)
+        Me.Controls.Add(Me.btnDrop)
         Me.Controls.Add(Me.btnModify)
         Me.Controls.Add(Me.lblStudentCount)
         Me.Controls.Add(Me.lblValTime)
@@ -188,4 +200,5 @@ Partial Class ClassInformation
     Friend WithEvents lblValName As Label
     Friend WithEvents lblStudentCount As Label
     Friend WithEvents btnModify As Button
+    Friend WithEvents btnDrop As Button
 End Class

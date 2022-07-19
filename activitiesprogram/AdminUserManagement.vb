@@ -1,28 +1,15 @@
 ﻿Public Class AdminUserManagement
+    Dim id As Integer = 0
     Private Sub AdminUserManagement_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
-    Private Sub tbSecretKey_TextChanged(sender As Object, e As EventArgs) Handles tbSecretKey.TextChanged
-        Dim en As New encryptClass
-        en.hashProp = tbSecretKey.Text
-        Dim db As New DBClass
-        db.Open()
-        Dim cmd = db.cmd
-        Dim dr = db.dr
-        cmd.Connection = db.conn
-        cmd.CommandText = "SELECT * FROM secretkey WHERE secretkey = @KEY"
-        cmd.Parameters.AddWithValue("@KEY", en.hashProp)
-        dr = cmd.ExecuteReader
-        If dr.HasRows Then
-            gbHidden.Visible = True
-            LoadUsers()
+        If CheckExistAdmin() Then
         Else
-            gbHidden.Visible = False
+            btnLogin.Text = "Set"
+            tbAdminUsername.PasswordChar = Nothing
+            tbAdminPassword.PasswordChar = Nothing
         End If
-
-        db.Close()
     End Sub
+
+
     Public Sub LoadUsers()
         Dim db As New DBClass
         db.Open()
@@ -36,14 +23,14 @@
         dgvUsers.DataSource = dt
         db.Close()
     End Sub
-    Private Function CheckExistKey() As Boolean
+    Private Function CheckExistAdmin() As Boolean
         Dim db As New DBClass
         db.Open()
 
         Dim cmd = db.cmd
         Dim dr = db.dr
         cmd.Connection = db.conn
-        cmd.CommandText = "SELECT COUNT(*) as c FROM secretkey"
+        cmd.CommandText = "SELECT COUNT(*) as c FROM admin"
         dr = cmd.ExecuteReader
         If dr.HasRows Then
             While dr.Read
@@ -58,29 +45,6 @@
         db.Close()
     End Function
 
-    Private Sub lblSecretKey_DoubleClick(sender As Object, e As EventArgs) Handles lblSecretKey.DoubleClick
-        Dim en As New encryptClass
-        en.hashProp = tbSecretKey.Text
-        If CheckExistKey() Then
-            Dim db As New DBClass
-            db.Open()
-            Dim cmd = db.cmd
-            cmd.Connection = db.conn
-            cmd.CommandText = "UPDATE secretkey SET secretkey = @KEY"
-            cmd.Parameters.AddWithValue("@KEY", en.hashProp)
-            cmd.ExecuteNonQuery()
-            db.Close()
-        Else
-            Dim db As New DBClass
-            db.Open()
-            Dim cmd = db.cmd
-            cmd.Connection = db.conn
-            cmd.CommandText = "INSERT INTO secretkey (secretkey) VALUES (@KEY)"
-            cmd.Parameters.AddWithValue("@KEY", en.hashProp)
-            cmd.ExecuteNonQuery()
-            db.Close()
-        End If
-    End Sub
 
     Private Sub btnUpdate_Click(sender As Object, e As EventArgs) Handles btnUpdate.Click
         If tbUser.Text <> "" AndAlso tbPassword.Text <> "" Then
@@ -114,5 +78,47 @@
         tbUser.Enabled = True
         tbPassword.Enabled = True
         tbUser.Text = dgvUsers.CurrentRow.Cells(1).Value.ToString
+    End Sub
+
+    Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
+        If tbAdminUsername.Text <> "" AndAlso tbAdminPassword.Text <> "" Then
+            If btnLogin.Text = "Set" Then
+                Dim en As New encryptClass
+                en.hashProp = tbAdminPassword.Text
+                Dim a As New AdminClass
+                a.AdminUsername = tbAdminUsername.Text
+                a.AdminPassword = en.hashProp
+                a.SetAdmin()
+                AfterAdminSet()
+            Else
+                Dim en As New encryptClass
+                en.hashProp = tbAdminPassword.Text
+                Dim a As New AdminClass
+                a.AdminUsername = tbAdminUsername.Text
+                a.AdminPassword = en.hashProp
+                id = a.AdminLogin()
+                If id <> 0 Then
+                    a.SetLoginIndicator(id)
+                    LoadUsers()
+                    gbLogin.Visible = False
+                    gbHidden.Visible = True
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub AfterAdminSet()
+        tbAdminPassword.Clear()
+        tbAdminPassword.PasswordChar = "?"
+        tbAdminUsername.PasswordChar = "?"
+        tbAdminUsername.Clear()
+        btnLogin.Text = "Login"
+    End Sub
+
+    Private Sub AdminUserManagement_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        If id <> 0 Then
+            Dim a As New AdminClass
+            a.SetLogoutIndicator()
+        End If
     End Sub
 End Class

@@ -28,7 +28,7 @@
                            co.day as 'Day', sec.midterm_grade as 'Midterm Grade', sec.finals_grade as 'Finals Grade', 
                            sec.FinalGrade as 'Final Grade', sec.remarks as 'Remarks' FROM class_offering as co JOIN subject as s 
                            JOIN teacher as t JOIN student_enroll_class as sec WHERE co.idsubject = s.idsubject AND co.idteacher = t.idteacher 
-                           AND sec.idclass_offering = co.idclass_offering AND sec.idstudent = @idstudent"
+                           AND sec.idclass_offering = co.idclass_offering AND sec.idstudent = @idstudent AND co.idsy = (SELECT * FROM active_sy)"
         cmd.Parameters.AddWithValue("@idstudent", StudentID)
         dr = cmd.ExecuteReader
         Dim dt As New DataTable
@@ -46,29 +46,73 @@
         cmd.Connection = db.conn
         cmd.CommandText = "SELECT co.idclass_offering, CONCAT(s.subject_name, ' (',s.units,') Units ', co.day, ' (Room ', co.room,')') as SD 
                            FROM class_offering as co JOIN subject as s JOIN teacher as t WHERE co.idsubject = s.idsubject AND co.idteacher = t.idteacher
-                           AND co.idclass_offering NOT IN (SELECT idclass_offering FROM student_enroll_class WHERE idstudent = @idstudent)"
+                           AND co.idclass_offering NOT IN (SELECT idclass_offering FROM student_enroll_class WHERE idstudent = @idstudent) AND s.idsubject NOT IN 
+                           (SELECT s.idsubject FROM class_offering as co JOIN subject as s 
+                           JOIN teacher as t JOIN student_enroll_class as sec WHERE co.idsubject = s.idsubject AND co.idteacher = t.idteacher 
+                           AND sec.idclass_offering = co.idclass_offering AND sec.idstudent = @idstudent) AND co.idsy = (SELECT * FROM active_sy)"
         cmd.Parameters.AddWithValue("@idstudent", StudentID)
         dr = cmd.ExecuteReader
+
         Dim dt As New DataTable
         dt.Load(dr)
         cbAvailableSubjects.DataSource = dt
         cbAvailableSubjects.DisplayMember = "SD"
         cbAvailableSubjects.ValueMember = "idclass_offering"
         db.Close()
+        lblTotalUnits.Text = "Total Units: " + ShowTotalUnits().ToString
     End Sub
+
+    Private Function ShowTotalUnits() As Double
+        Dim db As New DBClass
+        db.Open()
+        Dim cmd = db.cmd
+        Dim dr = db.dr
+        cmd.Connection = db.conn
+        cmd.CommandText = "SELECT sum(s.units) as TU FROM class_offering as co JOIN subject as s 
+                           JOIN teacher as t JOIN student_enroll_class as sec WHERE co.idsubject = s.idsubject AND co.idteacher = t.idteacher 
+                           AND sec.idclass_offering = co.idclass_offering AND sec.idstudent = @idstudent"
+        cmd.Parameters.AddWithValue("@idstudent", StudentID)
+        dr = cmd.ExecuteReader
+        If dr.HasRows Then
+            While dr.Read
+                Return dr("TU")
+            End While
+        End If
+        Return 0.0
+    End Function
+
+    Private Function RestrictOnUnits() As Boolean
+        Dim db As New DBClass
+        db.Open()
+        Dim cmd = db.cmd
+        Dim dr = db.dr
+        cmd.Connection = db.conn
+        cmd.CommandText = "SELECT * FROM class_offering as co JOIN subject as s WHERE co.idsubject = s.idsubject AND idclass_offering = @IDCO"
+        cmd.Parameters.AddWithValue("@IDCO", cbAvailableSubjects.SelectedValue)
+        dr = cmd.ExecuteReader
+        If dr.HasRows Then
+            While dr.Read
+                If dr("units") >= (31 - ShowTotalUnits()) Then
+                Else
+                    btnEnroll.Enabled = True
+                    Return True
+                End If
+            End While
+        End If
+        Return False
+        db.Close()
+    End Function
 
     Private Sub btnEnroll_Click(sender As Object, e As EventArgs) Handles btnEnroll.Click
-        Dim ssmc As New StudentSubjectManagementClass
-        ssmc.StudentID = StudentID
-        ssmc.ClassOfferID = cbAvailableSubjects.SelectedValue
-        ssmc.Enroll()
-        LoadAvailableClass()
-        LoadEnrolledClass()
-    End Sub
-
-    Private Sub cbAvailableSubjects_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbAvailableSubjects.SelectedIndexChanged
-        If cbAvailableSubjects.Text <> "" Then
-            btnEnroll.Enabled = True
+        If RestrictOnUnits() Then
+            Dim ssmc As New StudentSubjectManagementClass
+            ssmc.StudentID = StudentID
+            ssmc.ClassOfferID = cbAvailableSubjects.SelectedValue
+            ssmc.Enroll()
+            LoadAvailableClass()
+            LoadEnrolledClass()
+        Else
+            MessageBox.Show("A student only have a maximum of 31 units per semester.")
         End If
     End Sub
 

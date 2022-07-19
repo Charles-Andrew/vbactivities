@@ -49,7 +49,7 @@ Public Class StudentForm
         Dim dr As MySqlDataReader
         Dim dt As New DataTable
         cmd.Connection = Conn
-        cmd.CommandText = "SELECT idsy, CONCAT(year,' - ', sem, ' semester') as sem FROM schoolyear_sem ORDER BY year DESC;"
+        cmd.CommandText = "SELECT idsy, CONCAT(year,' - ', sem, ' semester') as sem FROM schoolyear_sem WHERE idsy = (SELECT * FROM active_sy) ORDER BY year DESC;"
         dr = cmd.ExecuteReader
 
         If dr.HasRows Then

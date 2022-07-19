@@ -18,6 +18,34 @@ USE `activitydb`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `active_sy`
+--
+
+DROP TABLE IF EXISTS `active_sy`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `active_sy` (
+  `idsy` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `admin`
+--
+
+DROP TABLE IF EXISTS `admin`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `admin` (
+  `idadmin` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `isloggedin` tinyint(4) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`idadmin`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `class_offering`
 --
 
@@ -39,7 +67,7 @@ CREATE TABLE `class_offering` (
   CONSTRAINT `co_schoolyear_fk` FOREIGN KEY (`idsy`) REFERENCES `schoolyear_sem` (`idsy`) ON UPDATE CASCADE,
   CONSTRAINT `co_subject_fk` FOREIGN KEY (`idsubject`) REFERENCES `subject` (`idsubject`) ON UPDATE CASCADE,
   CONSTRAINT `co_teacher_fk` FOREIGN KEY (`idteacher`) REFERENCES `teacher` (`idteacher`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -54,7 +82,7 @@ CREATE TABLE `course` (
   `course_name` varchar(250) NOT NULL,
   `course_code` varchar(250) NOT NULL,
   PRIMARY KEY (`idcourse`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,21 +97,7 @@ CREATE TABLE `schoolyear_sem` (
   `year` varchar(45) NOT NULL,
   `sem` varchar(45) NOT NULL,
   PRIMARY KEY (`idsy`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Table structure for table `secretkey`
---
-
-DROP TABLE IF EXISTS `secretkey`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `secretkey` (
-  `idsecretkey` int(11) NOT NULL DEFAULT 1,
-  `secretkey` varchar(255) NOT NULL,
-  PRIMARY KEY (`idsecretkey`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,7 +140,7 @@ CREATE TABLE `student` (
   `Address` varchar(250) NOT NULL,
   `ContactNo` varchar(45) NOT NULL,
   PRIMARY KEY (`idstudent`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -162,7 +176,7 @@ CREATE TABLE `subject` (
   `subject_name` varchar(250) NOT NULL,
   `units` decimal(10,1) NOT NULL,
   PRIMARY KEY (`idsubject`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -178,7 +192,7 @@ CREATE TABLE `teacher` (
   `MName` varchar(250) NOT NULL,
   `LName` varchar(250) NOT NULL,
   PRIMARY KEY (`idteacher`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -206,4 +220,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-16 23:44:35
+-- Dump completed on 2022-07-19 10:40:20

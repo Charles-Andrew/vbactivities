@@ -1,9 +1,12 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class TeacherMasterList
-
+    Public Admin As Boolean = False
     Private Sub TeacherMasterList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoadRecords()
+        If Not Admin Then
+            btnDelete.Enabled = False
+        End If
     End Sub
 
     Private Sub LoadRecords()

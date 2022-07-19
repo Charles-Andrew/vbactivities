@@ -132,6 +132,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminClass.vb" />
     <Compile Include="AdminUserManagement.Designer.vb">
       <DependentUpon>AdminUserManagement.vb</DependentUpon>
     </Compile>
