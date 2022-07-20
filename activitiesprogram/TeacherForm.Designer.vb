@@ -36,74 +36,74 @@ Partial Class TeacherForm
         '
         'tbFN
         '
-        Me.tbFN.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbFN.Location = New System.Drawing.Point(123, 67)
+        Me.tbFN.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbFN.Location = New System.Drawing.Point(323, 11)
         Me.tbFN.Name = "tbFN"
-        Me.tbFN.Size = New System.Drawing.Size(213, 27)
+        Me.tbFN.Size = New System.Drawing.Size(213, 23)
         Me.tbFN.TabIndex = 0
         '
         'tbMN
         '
-        Me.tbMN.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbMN.Location = New System.Drawing.Point(123, 108)
+        Me.tbMN.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbMN.Location = New System.Drawing.Point(323, 40)
         Me.tbMN.Name = "tbMN"
-        Me.tbMN.Size = New System.Drawing.Size(213, 27)
+        Me.tbMN.Size = New System.Drawing.Size(213, 23)
         Me.tbMN.TabIndex = 1
         '
         'tbLN
         '
-        Me.tbLN.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbLN.Location = New System.Drawing.Point(123, 154)
+        Me.tbLN.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbLN.Location = New System.Drawing.Point(323, 70)
         Me.tbLN.Name = "tbLN"
-        Me.tbLN.Size = New System.Drawing.Size(213, 27)
+        Me.tbLN.Size = New System.Drawing.Size(213, 23)
         Me.tbLN.TabIndex = 2
         '
         'btnFname
         '
         Me.btnFname.AutoSize = True
-        Me.btnFname.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnFname.Location = New System.Drawing.Point(13, 70)
+        Me.btnFname.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnFname.Location = New System.Drawing.Point(235, 14)
         Me.btnFname.Name = "btnFname"
-        Me.btnFname.Size = New System.Drawing.Size(90, 20)
+        Me.btnFname.Size = New System.Drawing.Size(82, 15)
         Me.btnFname.TabIndex = 3
         Me.btnFname.Text = "First Name:"
         '
         'lblMname
         '
         Me.lblMname.AutoSize = True
-        Me.lblMname.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMname.Location = New System.Drawing.Point(12, 112)
+        Me.lblMname.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblMname.Location = New System.Drawing.Point(222, 43)
         Me.lblMname.Name = "lblMname"
-        Me.lblMname.Size = New System.Drawing.Size(107, 20)
+        Me.lblMname.Size = New System.Drawing.Size(95, 15)
         Me.lblMname.TabIndex = 4
         Me.lblMname.Text = "Middle Name:"
         '
         'lblLname
         '
         Me.lblLname.AutoSize = True
-        Me.lblLname.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblLname.Location = New System.Drawing.Point(13, 158)
+        Me.lblLname.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblLname.Location = New System.Drawing.Point(237, 74)
         Me.lblLname.Name = "lblLname"
-        Me.lblLname.Size = New System.Drawing.Size(88, 20)
+        Me.lblLname.Size = New System.Drawing.Size(80, 15)
         Me.lblLname.TabIndex = 5
         Me.lblLname.Text = "Last Name:"
         '
         'lblHeader
         '
         Me.lblHeader.AutoSize = True
-        Me.lblHeader.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblHeader.Location = New System.Drawing.Point(11, 9)
+        Me.lblHeader.Font = New System.Drawing.Font("Arial Rounded MT Bold", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblHeader.Location = New System.Drawing.Point(12, 31)
         Me.lblHeader.Name = "lblHeader"
-        Me.lblHeader.Size = New System.Drawing.Size(121, 25)
+        Me.lblHeader.Size = New System.Drawing.Size(183, 32)
         Me.lblHeader.TabIndex = 6
         Me.lblHeader.Text = "Add Teacher"
         '
         'btnAdd
         '
-        Me.btnAdd.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.Location = New System.Drawing.Point(135, 208)
+        Me.btnAdd.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAdd.Location = New System.Drawing.Point(551, 11)
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(75, 58)
+        Me.btnAdd.Size = New System.Drawing.Size(84, 82)
         Me.btnAdd.TabIndex = 7
         Me.btnAdd.Text = "Add Record"
         Me.btnAdd.UseVisualStyleBackColor = True
@@ -111,10 +111,10 @@ Partial Class TeacherForm
         'lblID
         '
         Me.lblID.AutoSize = True
-        Me.lblID.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblID.Location = New System.Drawing.Point(293, 9)
+        Me.lblID.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblID.Location = New System.Drawing.Point(96, 70)
         Me.lblID.Name = "lblID"
-        Me.lblID.Size = New System.Drawing.Size(43, 17)
+        Me.lblID.Size = New System.Drawing.Size(44, 15)
         Me.lblID.TabIndex = 8
         Me.lblID.Text = "TEMP"
         Me.lblID.Visible = False
@@ -122,10 +122,10 @@ Partial Class TeacherForm
         'lblIDlabel
         '
         Me.lblIDlabel.AutoSize = True
-        Me.lblIDlabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblIDlabel.Location = New System.Drawing.Point(253, 9)
+        Me.lblIDlabel.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblIDlabel.Location = New System.Drawing.Point(56, 70)
         Me.lblIDlabel.Name = "lblIDlabel"
-        Me.lblIDlabel.Size = New System.Drawing.Size(34, 17)
+        Me.lblIDlabel.Size = New System.Drawing.Size(32, 15)
         Me.lblIDlabel.TabIndex = 9
         Me.lblIDlabel.Text = "ID#:"
         Me.lblIDlabel.Visible = False
@@ -134,8 +134,8 @@ Partial Class TeacherForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(348, 290)
+        Me.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.ClientSize = New System.Drawing.Size(652, 105)
         Me.Controls.Add(Me.lblIDlabel)
         Me.Controls.Add(Me.lblID)
         Me.Controls.Add(Me.btnAdd)

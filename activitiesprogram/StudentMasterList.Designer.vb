@@ -32,7 +32,7 @@ Partial Class StudentMasterList
         '
         'btnAdd
         '
-        Me.btnAdd.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAdd.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAdd.Location = New System.Drawing.Point(12, 12)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(152, 36)
@@ -42,8 +42,8 @@ Partial Class StudentMasterList
         '
         'btnEdit
         '
-        Me.btnEdit.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEdit.Location = New System.Drawing.Point(12, 54)
+        Me.btnEdit.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEdit.Location = New System.Drawing.Point(170, 12)
         Me.btnEdit.Name = "btnEdit"
         Me.btnEdit.Size = New System.Drawing.Size(152, 36)
         Me.btnEdit.TabIndex = 1
@@ -52,8 +52,8 @@ Partial Class StudentMasterList
         '
         'btnDelete
         '
-        Me.btnDelete.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDelete.Location = New System.Drawing.Point(12, 96)
+        Me.btnDelete.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDelete.Location = New System.Drawing.Point(328, 12)
         Me.btnDelete.Name = "btnDelete"
         Me.btnDelete.Size = New System.Drawing.Size(152, 36)
         Me.btnDelete.TabIndex = 2
@@ -67,18 +67,18 @@ Partial Class StudentMasterList
         Me.dgvStudentViewer.AllowUserToResizeRows = False
         Me.dgvStudentViewer.BackgroundColor = System.Drawing.Color.White
         Me.dgvStudentViewer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvStudentViewer.Location = New System.Drawing.Point(180, 12)
+        Me.dgvStudentViewer.Location = New System.Drawing.Point(12, 54)
         Me.dgvStudentViewer.MultiSelect = False
         Me.dgvStudentViewer.Name = "dgvStudentViewer"
         Me.dgvStudentViewer.ReadOnly = True
         Me.dgvStudentViewer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvStudentViewer.Size = New System.Drawing.Size(608, 263)
+        Me.dgvStudentViewer.Size = New System.Drawing.Size(776, 287)
         Me.dgvStudentViewer.TabIndex = 3
         '
         'btnManageSubjects
         '
-        Me.btnManageSubjects.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnManageSubjects.Location = New System.Drawing.Point(12, 239)
+        Me.btnManageSubjects.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnManageSubjects.Location = New System.Drawing.Point(636, 12)
         Me.btnManageSubjects.Name = "btnManageSubjects"
         Me.btnManageSubjects.Size = New System.Drawing.Size(152, 36)
         Me.btnManageSubjects.TabIndex = 4
@@ -89,8 +89,8 @@ Partial Class StudentMasterList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(800, 287)
+        Me.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.ClientSize = New System.Drawing.Size(800, 353)
         Me.Controls.Add(Me.btnManageSubjects)
         Me.Controls.Add(Me.dgvStudentViewer)
         Me.Controls.Add(Me.btnDelete)

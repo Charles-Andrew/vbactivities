@@ -35,52 +35,53 @@ Partial Class TeacherMasterList
         Me.dgvTeacherViewer.AllowUserToAddRows = False
         Me.dgvTeacherViewer.AllowUserToDeleteRows = False
         Me.dgvTeacherViewer.AllowUserToResizeRows = False
+        Me.dgvTeacherViewer.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvTeacherViewer.BackgroundColor = System.Drawing.Color.White
         Me.dgvTeacherViewer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvTeacherViewer.Location = New System.Drawing.Point(206, 12)
+        Me.dgvTeacherViewer.Location = New System.Drawing.Point(21, 12)
         Me.dgvTeacherViewer.MultiSelect = False
         Me.dgvTeacherViewer.Name = "dgvTeacherViewer"
         Me.dgvTeacherViewer.ReadOnly = True
         Me.dgvTeacherViewer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgvTeacherViewer.Size = New System.Drawing.Size(418, 256)
+        Me.dgvTeacherViewer.Size = New System.Drawing.Size(626, 256)
         Me.dgvTeacherViewer.TabIndex = 7
         '
         'btnDelete
         '
-        Me.btnDelete.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDelete.Location = New System.Drawing.Point(12, 96)
+        Me.btnDelete.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDelete.Location = New System.Drawing.Point(337, 275)
         Me.btnDelete.Name = "btnDelete"
-        Me.btnDelete.Size = New System.Drawing.Size(152, 36)
+        Me.btnDelete.Size = New System.Drawing.Size(152, 46)
         Me.btnDelete.TabIndex = 6
         Me.btnDelete.Text = "Delete Teacher"
         Me.btnDelete.UseVisualStyleBackColor = True
         '
         'btnAdd
         '
-        Me.btnAdd.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.Location = New System.Drawing.Point(12, 12)
+        Me.btnAdd.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAdd.Location = New System.Drawing.Point(21, 275)
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(152, 36)
+        Me.btnAdd.Size = New System.Drawing.Size(152, 46)
         Me.btnAdd.TabIndex = 4
         Me.btnAdd.Text = "Add Teacher"
         Me.btnAdd.UseVisualStyleBackColor = True
         '
         'btnEdit
         '
-        Me.btnEdit.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEdit.Location = New System.Drawing.Point(12, 54)
+        Me.btnEdit.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEdit.Location = New System.Drawing.Point(179, 275)
         Me.btnEdit.Name = "btnEdit"
-        Me.btnEdit.Size = New System.Drawing.Size(152, 36)
+        Me.btnEdit.Size = New System.Drawing.Size(152, 46)
         Me.btnEdit.TabIndex = 5
         Me.btnEdit.Text = "Edit Teacher"
         Me.btnEdit.UseVisualStyleBackColor = True
         '
         'Button1
         '
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(12, 232)
+        Me.Button1.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(495, 275)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(152, 36)
+        Me.Button1.Size = New System.Drawing.Size(152, 46)
         Me.Button1.TabIndex = 8
         Me.Button1.Text = "Class Management"
         Me.Button1.UseVisualStyleBackColor = True
@@ -89,8 +90,8 @@ Partial Class TeacherMasterList
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.White
-        Me.ClientSize = New System.Drawing.Size(638, 283)
+        Me.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.ClientSize = New System.Drawing.Size(674, 329)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.dgvTeacherViewer)
         Me.Controls.Add(Me.btnDelete)

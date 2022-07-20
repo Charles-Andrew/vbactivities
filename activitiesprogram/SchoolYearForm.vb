@@ -82,9 +82,26 @@ Public Class SchoolYearForm
         btnAdd.Enabled = False
         lblInfo.ForeColor = Color.Red
         lblInfo.Visible = True
+        LoadAllSY()
     End Sub
 
-    Private Sub btnSetSY_Click(sender As Object, e As EventArgs)
+
+    Public Function HaveActiveSY() As Boolean
+        Dim db As New DBClass
+        db.Open()
+        Dim cmd = db.cmd
+        Dim dr = db.dr
+        cmd.Connection = db.conn
+        cmd.CommandText = "SELECT * FROM active_sy"
+        dr = cmd.ExecuteReader
+        If dr.HasRows Then
+            Return True
+        Else
+            Return False
+        End If
+    End Function
+
+    Private Sub btnSetSY_Click(sender As Object, e As EventArgs) Handles btnSetSY.Click
         If cbSY.Text <> "" Then
             If Not HaveActiveSY() Then
                 Dim db As New DBClass
@@ -106,19 +123,4 @@ Public Class SchoolYearForm
         End If
         LoadActiveSY()
     End Sub
-
-    Public Function HaveActiveSY() As Boolean
-        Dim db As New DBClass
-        db.Open()
-        Dim cmd = db.cmd
-        Dim dr = db.dr
-        cmd.Connection = db.conn
-        cmd.CommandText = "SELECT * FROM active_sy"
-        dr = cmd.ExecuteReader
-        If dr.HasRows Then
-            Return True
-        Else
-            Return False
-        End If
-    End Function
 End Class

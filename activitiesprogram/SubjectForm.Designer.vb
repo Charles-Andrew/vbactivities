@@ -32,39 +32,39 @@ Partial Class SubjectForm
         '
         'tbSubjectName
         '
-        Me.tbSubjectName.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbSubjectName.Location = New System.Drawing.Point(139, 26)
+        Me.tbSubjectName.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbSubjectName.Location = New System.Drawing.Point(13, 46)
         Me.tbSubjectName.Multiline = True
         Me.tbSubjectName.Name = "tbSubjectName"
-        Me.tbSubjectName.Size = New System.Drawing.Size(250, 60)
+        Me.tbSubjectName.Size = New System.Drawing.Size(250, 64)
         Me.tbSubjectName.TabIndex = 0
         '
         'lblSubjectName
         '
         Me.lblSubjectName.AutoSize = True
-        Me.lblSubjectName.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblSubjectName.Location = New System.Drawing.Point(25, 26)
+        Me.lblSubjectName.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblSubjectName.Location = New System.Drawing.Point(9, 13)
         Me.lblSubjectName.Name = "lblSubjectName"
-        Me.lblSubjectName.Size = New System.Drawing.Size(108, 20)
+        Me.lblSubjectName.Size = New System.Drawing.Size(102, 15)
         Me.lblSubjectName.TabIndex = 2
         Me.lblSubjectName.Text = "Subject Name:"
         '
         'lblUnits
         '
         Me.lblUnits.AutoSize = True
-        Me.lblUnits.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUnits.Location = New System.Drawing.Point(85, 102)
+        Me.lblUnits.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUnits.Location = New System.Drawing.Point(278, 13)
         Me.lblUnits.Name = "lblUnits"
-        Me.lblUnits.Size = New System.Drawing.Size(48, 20)
+        Me.lblUnits.Size = New System.Drawing.Size(45, 15)
         Me.lblUnits.TabIndex = 3
         Me.lblUnits.Text = "Units:"
         '
         'btnAdd
         '
-        Me.btnAdd.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnAdd.Location = New System.Drawing.Point(120, 151)
+        Me.btnAdd.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAdd.Location = New System.Drawing.Point(282, 79)
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(142, 31)
+        Me.btnAdd.Size = New System.Drawing.Size(120, 31)
         Me.btnAdd.TabIndex = 4
         Me.btnAdd.Text = "Add Subject"
         Me.btnAdd.UseVisualStyleBackColor = True
@@ -72,18 +72,19 @@ Partial Class SubjectForm
         'numericUnits
         '
         Me.numericUnits.DecimalPlaces = 1
-        Me.numericUnits.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.numericUnits.Font = New System.Drawing.Font("Arial Rounded MT Bold", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.numericUnits.Increment = New Decimal(New Integer() {1, 0, 0, 65536})
-        Me.numericUnits.Location = New System.Drawing.Point(139, 95)
+        Me.numericUnits.Location = New System.Drawing.Point(282, 46)
         Me.numericUnits.Name = "numericUnits"
-        Me.numericUnits.Size = New System.Drawing.Size(120, 27)
+        Me.numericUnits.Size = New System.Drawing.Size(120, 23)
         Me.numericUnits.TabIndex = 5
         '
         'SubjectForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(401, 194)
+        Me.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.ClientSize = New System.Drawing.Size(412, 122)
         Me.Controls.Add(Me.numericUnits)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.lblUnits)

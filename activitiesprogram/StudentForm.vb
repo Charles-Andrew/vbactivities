@@ -199,4 +199,56 @@ Public Class StudentForm
     Private Sub cbCourse_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbCourse.SelectedIndexChanged
         ValidateFields()
     End Sub
+
+    Private Sub lblFname_Click(sender As Object, e As EventArgs) Handles lblFname.Click
+
+    End Sub
+
+    Private Sub lblMname_Click(sender As Object, e As EventArgs) Handles lblMname.Click
+
+    End Sub
+
+    Private Sub lblParentName_Click(sender As Object, e As EventArgs) Handles lblParentName.Click
+
+    End Sub
+
+    Private Sub lblDOB_Click(sender As Object, e As EventArgs) Handles lblDOB.Click
+
+    End Sub
+
+    Private Sub lblGender_Click(sender As Object, e As EventArgs) Handles lblGender.Click
+
+    End Sub
+
+    Private Sub lblContact_Click(sender As Object, e As EventArgs) Handles lblContact.Click
+
+    End Sub
+
+    Private Sub lblAddress_Click(sender As Object, e As EventArgs) Handles lblAddress.Click
+
+    End Sub
+
+    Private Sub lblLname_Click(sender As Object, e As EventArgs) Handles lblLname.Click
+
+    End Sub
+
+    Private Sub dtpDOB_ValueChanged(sender As Object, e As EventArgs) Handles dtpDOB.ValueChanged
+
+    End Sub
+
+    Private Sub lblSy_Click(sender As Object, e As EventArgs) Handles lblSy.Click
+
+    End Sub
+
+    Private Sub lblYl_Click(sender As Object, e As EventArgs) Handles lblYl.Click
+
+    End Sub
+
+    Private Sub lblCourse_Click(sender As Object, e As EventArgs) Handles lblCourse.Click
+
+    End Sub
+
+    Private Sub lblStatus_Click(sender As Object, e As EventArgs) Handles lblStatus.Click
+
+    End Sub
 End Class
