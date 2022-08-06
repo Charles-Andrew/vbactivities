@@ -72,7 +72,7 @@
         Dim cmd = db.cmd
         Dim dr = db.dr
         cmd.Connection = db.conn
-        cmd.CommandText = "SELECT sum(s.units) as TU FROM class_offering as co JOIN subject as s 
+        cmd.CommandText = "SELECT ifnull(sum(s.units), 0) as TU FROM class_offering as co JOIN subject as s 
                            JOIN teacher as t JOIN student_enroll_class as sec WHERE co.idsubject = s.idsubject AND co.idteacher = t.idteacher 
                            AND sec.idclass_offering = co.idclass_offering AND sec.idstudent = @idstudent"
         cmd.Parameters.AddWithValue("@idstudent", StudentID)
@@ -96,7 +96,7 @@
         dr = cmd.ExecuteReader
         If dr.HasRows Then
             While dr.Read
-                If dr("units") >= (31 - ShowTotalUnits()) Then
+                If dr("units") > (31 - ShowTotalUnits()) Then
                 Else
                     btnEnroll.Enabled = True
                     Return True

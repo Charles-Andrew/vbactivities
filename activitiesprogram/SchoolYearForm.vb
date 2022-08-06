@@ -40,8 +40,7 @@ Public Class SchoolYearForm
         Dim cmd = db.cmd
         Dim dr = db.dr
         cmd.Connection = db.conn
-        cmd.CommandText = "SELECT concat(year,' ',sem) as asy FROM schoolyear_sem WHERE idsy = @ID"
-        cmd.Parameters.AddWithValue("@ID", cbSY.SelectedValue)
+        cmd.CommandText = "SELECT concat(year,' ',sem) as asy FROM schoolyear_sem WHERE idsy = (SELECT * FROM activitydb.active_sy)"
         dr = cmd.ExecuteReader
 
         If dr.HasRows Then

@@ -1,6 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class TeacherClassManagementForm
+    Public Admin As Boolean = False
     Public TeacherID As Integer = 0
     Dim Daystring As String = ""
     Dim CurItemID As Integer = 0
@@ -8,6 +9,10 @@ Public Class TeacherClassManagementForm
         Me.MinimizeBox = False
         Me.MaximizeBox = False
         Me.FormBorderStyle = Windows.Forms.FormBorderStyle.FixedDialog
+
+        If Not Admin Then
+            btnDelete.Enabled = False
+        End If
 
         loadItems()
         btnAddClass.Enabled = False
@@ -313,6 +318,7 @@ Public Class TeacherClassManagementForm
         Else
             Dim ci As New ClassInformation
             ci.ClassID = cbExistingClass.SelectedValue
+            ci.Admin = Admin
             ci.ShowDialog()
         End If
     End Sub
